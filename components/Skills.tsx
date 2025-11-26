@@ -1,41 +1,40 @@
 'use client';
 import React from 'react';
-import { FaExternalLinkAlt } from 'react-icons/fa';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const skills = [
-  { name: 'React', icon: '⚛️', color: 'from-cyan-500 to-blue-500' },
-  { name: 'Node.js', icon: '🟢', color: 'from-green-500 to-emerald-500' },
-  { name: 'TypeScript', icon: '📘', color: 'from-blue-500 to-indigo-500' },
-  { name: 'Next.js', icon: '▲', color: 'from-gray-700 to-gray-900' },
-  { name: 'Tailwind', icon: '🎨', color: 'from-cyan-400 to-teal-500' },
-  { name: 'MongoDB', icon: '🍃', color: 'from-green-600 to-green-800' },
-  { name: 'Git', icon: '📦', color: 'from-orange-500 to-red-500' },
-  { name: 'Figma', icon: '🎯', color: 'from-purple-500 to-pink-500' }
-];
+  { name: 'React', icon: '⚛️' },
+  { name: 'Node.js', icon: '🟢' },
+  { name: 'TypeScript', icon: '📘' },
+  { name: 'Next.js', icon: '▲' },
+  { name: 'Tailwind', icon: '🎨' },
+  { name: 'MongoDB', icon: '🍃' },
+  { name: 'Git', icon: '📦' },
+  { name: 'Figma', icon: '🎯' },
+] as const;
 
 export default function Skills() {
+  const { t } = useLanguage();
+
   return (
-    <section className="py-20 px-6 max-w-7xl mx-auto">
-      <div className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-xl p-8 rounded-3xl border border-white/10">
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <p className="text-gray-400 text-sm mb-1">Most Use</p>
-            <h3 className="text-3xl font-bold">Skills</h3>
+    <section className="py-16 px-6 max-w-7xl mx-auto">
+      <div className="grid gap-8 lg:grid-cols-[2.7fr_1fr]">
+        <div className="bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)]">
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="text-3xl font-bold">{t('skills.title')}</h3>
+            <span className="text-gray-500 text-xs border border-white/10 rounded-full px-3 py-1">EX</span>
           </div>
-          <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform">
-            <FaExternalLinkAlt className="w-5 h-5 text-black" />
-          </button>
-        </div>
-        <div className="grid grid-cols-4 md:grid-cols-8 gap-4">
-          {skills.map((skill, i) => (
-            <div
-              key={i}
-              className="aspect-square bg-gradient-to-br from-gray-700/50 to-gray-800/50 rounded-2xl flex flex-col items-center justify-center border border-white/10 hover:border-orange-500/50 cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-2 group"
-            >
-              <span className="text-3xl mb-2 group-hover:scale-125 transition-transform">{skill.icon}</span>
-              <span className="text-xs text-gray-400 group-hover:text-white transition-colors">{skill.name}</span>
-            </div>
-          ))}
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
+            {skills.map((skill) => (
+              <div
+                key={skill.name}
+                className="bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-2xl border border-white/10 flex items-center gap-4 px-4 py-5 text-gray-200 hover:border-orange-400 hover:text-white transition-all duration-300"
+              >
+                <span className="text-2xl">{skill.icon}</span>
+                <span className="text-sm uppercase tracking-widest">{skill.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
