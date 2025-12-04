@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@theme {
+  --color-react: #61dafb;
+  --color-nodejs: #339933;
+  --color-typescript: #3178c6;
+  --color-nextjs: #ffffff;
+  --color-tailwind: #06b6d4;
+  --color-mongodb: #47a248;
+  --color-git: #f05032;
+  --color-figma: #f24e1e;
+  --color-meditation: #9333ea;
+  --color-ecommerce: #f59e0b;
+  --color-portfolio: #ec4899;
+}
+
 @keyframes gradient {
 
   0%,

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Mon Portfolio ",
+  title: "Mon Portfolio",
   description: "Découvrez mes projets et compétences en développement.",
 };
 
@@ -17,11 +18,13 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={inter.className}>
-                
-        <div className=" min-h-screen bg-gray-50">
+        <LanguageProvider>
+          <div className="min-h-screen bg-gray-50">
             {children}
-        </div>
+          </div>
+        </LanguageProvider>
       </body>
     </html>
   );
 }
+
