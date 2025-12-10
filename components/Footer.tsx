@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { TbFileCv } from 'react-icons/tb';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Footer() {
@@ -19,6 +20,9 @@ export default function Footer() {
             </a>
             <a href="mailto:anthonymarquesfelix@gmail.com" target="_blank" rel="noopener noreferrer">
               <FaEnvelope className="w-5 h-5 text-gray-400 hover:text-red-400 cursor-pointer transition-colors" />
+            </a>
+            <a href={t('misc.cvLink')} target="_blank" rel="noopener noreferrer">
+              <TbFileCv className="w-5 h-5 text-gray-400 hover:text-green-400 cursor-pointer transition-colors" />
             </a>
           </div>
           <p className="text-center text-gray-500">

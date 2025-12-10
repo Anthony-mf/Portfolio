@@ -48,18 +48,24 @@ const translations = {
     'hobbies.title': 'Loisirs',
     'hobbies.pageTitle': 'Mes Loisirs',
     'hobbies.intro': 'En dehors du développement, je cultive diverses passions qui enrichissent ma créativité et mon équilibre personnel.',
-    'hobbies.art3d.title': 'Art 3D',
-    'hobbies.art3d.description': 'Création de modèles 3D et d\'environnements immersifs avec Blender et autres outils de modélisation.',
+    'hobbies.scooter.title': 'Trottinette Freestyle',
+    'hobbies.scooter.description': 'Je pratique la trotinette freestyle depuis mes 12 ans.',
+    'hobbies.scooter.expandedDescription': 'Je pratique la trotinette freestyle depuis mes 12 ans, me permetttant ainsi de renforcer mon équilibre et ma coordination, ainsi que ma détermination et ma persévérance. Une vidéo de moi en action ci-dessous.',
     'hobbies.gaming.title': 'Jeux Vidéo',
-    'hobbies.gaming.description': 'Passionné par les jeux vidéo, notamment les RPG et les jeux de stratégie qui stimulent la réflexion.',
+    'hobbies.gaming.description': 'Passionné par les jeux vidéo, notamment les Open-Worlds.',
+    'hobbies.gaming.expandedDescription': 'Passionné par les jeux vidéo, notamment les Open-Worlds, cela m\'a permis de découvrir de nouveaux mondes et de nouvelles histoires, attisant ma curiosité et mon imagination. Par exemple, le jeu "Minecraft" présent ci-dessous en est un bon exemple.',
     'hobbies.music.title': 'Musique',
-    'hobbies.music.description': 'Écoute et découverte de nouveaux genres musicaux, de l\'électronique au rock progressif.',
-    'hobbies.photography.title': 'Photographie',
-    'hobbies.photography.description': 'Capture de moments et de paysages, exploration de la composition et de la lumière.',
-    'hobbies.fitness.title': 'Sport',
-    'hobbies.fitness.description': 'Pratique régulière d\'activités sportives pour maintenir un équilibre corps-esprit.',
+    'hobbies.music.description': 'Écoute et découverte de nouveaux genres musicaux.',
+    'hobbies.music.expandedDescription': 'Écoute et découverte de nouveaux genres musicaux, du Hip Hop au Soul en passant par de nombreux autres. Un carrousel de mes chansons préférées ci-dessous.',
+    'hobbies.drawing.title': 'Dessin',
+    'hobbies.drawing.description': 'Le dessin me permet de m\'exprimer librement.',
+    'hobbies.drawing.expandedDescription': 'Le dessin me permet de m\'exprimer librement, avec minutie et précision. Quelques exemples de dessous avec mes dessins préférés.',
+    'hobbies.audiovisual.title': 'Audiovisuel',
+    'hobbies.audiovisual.description': 'Le monde de l\'audiovisuel.',
+    'hobbies.audiovisual.expandedDescription': 'Le monde de l\'audiovisuel est passionnant, avec des histoires et des personnages qui m\'inspirent. Je regarde beaucoup de séries et de films, ainsi que des animes.',
     'hobbies.reading.title': 'Lecture',
-    'hobbies.reading.description': 'Lecture de livres techniques, science-fiction et développement personnel.',
+    'hobbies.reading.description': 'Lecture de livres.',
+    'hobbies.reading.expandedDescription': 'Lecture de livres d\'épouvantes et science-fiction, comme ci-dessous avec les livres "Chair de poule".',
 
     // Experiences
     'experiences.title': 'Expériences',
@@ -80,14 +86,12 @@ const translations = {
 
     // About Page
     'about.title': 'À Propos',
-    'about.intro': 'Passionné par la technologie et le développement, je suis constamment à la recherche de nouveaux défis et d\'opportunités pour apprendre et grandir.',
+    'about.intro': 'Passionné par la technologie et le développement, je suis constamment à la recherche de nouveaux défis et d\'opportunités pour apprendre et grandir. ',
     'about.personalInfo.title': 'Informations Personnelles',
     'about.personalInfo.ageLabel': 'Âge',
     'about.personalInfo.age': '20 ans',
     'about.personalInfo.locationLabel': 'Localisation',
-    'about.personalInfo.location': 'France',
-    'about.personalInfo.interestsLabel': 'Centres d\'intérêt',
-    'about.personalInfo.interests': 'Développement, UI/UX, Art 3D',
+    'about.personalInfo.location': 'Annecy / Lyon',
     'about.education.title': 'Formation',
     'about.education.period': '2022 - 2025',
     'about.education.degree': 'BUT Informatique',
@@ -100,6 +104,9 @@ const translations = {
 
     // Footer
     'footer.rights': 'Tous droits réservés par Anthony Marques Felix',
+
+    // Misc
+    'misc.cvLink': '/cvs/CV_MARQUES_FELIX_Anthony.pdf',
   },
   en: {
     // Navbar
@@ -139,8 +146,8 @@ const translations = {
     'hobbies.title': 'Hobbies',
     'hobbies.pageTitle': 'My Hobbies',
     'hobbies.intro': 'Outside of development, I cultivate various passions that enrich my creativity and personal balance.',
-    'hobbies.art3d.title': '3D Art',
-    'hobbies.art3d.description': 'Creating 3D models and immersive environments with Blender and other modeling tools.',
+    'hobbies.scooter.title': 'Scooter Freestyle',
+    'hobbies.scooter.description': 'I practice Scooter Freestyle since .',
     'hobbies.gaming.title': 'Video Games',
     'hobbies.gaming.description': 'Passionate about video games, especially RPGs and strategy games that stimulate thinking.',
     'hobbies.music.title': 'Music',
@@ -176,9 +183,7 @@ const translations = {
     'about.personalInfo.ageLabel': 'Age',
     'about.personalInfo.age': '20 years old',
     'about.personalInfo.locationLabel': 'Location',
-    'about.personalInfo.location': 'France',
-    'about.personalInfo.interestsLabel': 'Interests',
-    'about.personalInfo.interests': 'Development, UI/UX, 3D Art',
+    'about.personalInfo.location': 'Annecy / Lyon',
     'about.education.title': 'Education',
     'about.education.period': '2022 - 2025',
     'about.education.degree': 'Bachelor in Computer Science',
@@ -191,6 +196,9 @@ const translations = {
 
     // Footer
     'footer.rights': 'All rights reserved by Anthony Marques Felix',
+
+    // Misc
+    'misc.cvLink': '/cvs/CV_Anthony_MARQUES_FELIX.pdf',
   },
 };
 

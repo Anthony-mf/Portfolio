@@ -1,6 +1,6 @@
 'use client';
-import { FaGithub, FaLinkedin, FaEnvelope, FaGitAlt } from 'react-icons/fa';
-import { SiMongodb, SiNextdotjs, SiHtml5, SiCss3, SiJavascript, SiTypescript, SiReact, SiNodedotjs, SiPostgresql } from 'react-icons/si';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { SiMongodb, SiNextdotjs, SiHtml5, SiCss3, SiJavascript, SiReact, SiPostgresql } from 'react-icons/si';
 import { TbBrandCSharp, TbFileCv } from 'react-icons/tb';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Typewriter from './Typewriter';
@@ -83,7 +83,7 @@ export default function Hero() {
     },
     {
       icon: TbFileCv,
-      href: language === 'fr' ? '/cvs/CV_MARQUES_FELIX_Anthony.pdf' : '/cvs/CV_Anthony_MARQUES_FELIX.pdf',
+      href: t('misc.cvLink'),
       accent: 'hover:border-green-400 hover:text-green-400',
       shadow: 'hover:shadow-green-400/30',
     },
@@ -93,11 +93,11 @@ export default function Hero() {
     <section className="pt-32 pb-16 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Grille asymétrique : Ligne 1 [2fr_1fr_1fr], Ligne 2 [1fr_1fr_2fr] */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
           {/* Ligne 1 - Colonne 1: About - 2 colonnes */}
-          <a href="/about" className="lg:col-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-6 flex flex-col justify-between shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500 cursor-pointer max-h-80 no-underline">
-            <div>
+          <a href="/about" className="lg:col-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 flex flex-col justify-between shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500 cursor-pointer max-h-80 no-underline">
+            <div className="mb-8">
               <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">
                 <Typewriter
                   texts={[t('hero.alternant'), t('hero.futureDeveloper')]}
@@ -119,7 +119,7 @@ export default function Hero() {
           </a>
 
           {/* Ligne 1 - Colonne 2: Contacts (2x2) - 1 colonne */}
-          <div className="lg:col-span-1 grid grid-cols-2 gap-4">
+          <div className="lg:col-span-1 grid grid-cols-2 gap-8">
             {contactCards.map(({ icon: Icon, href, accent, shadow }) => (
               <a
                 key={href}
@@ -135,7 +135,7 @@ export default function Hero() {
 
           {/* Ligne 1 - Colonne 3 : Skills Icons - 1 colonne */}
           <a href="/skills" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-6 flex flex-col justify-between shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500 cursor-pointer max-h-80 no-underline">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-8">
               <h3 className="text-2xl font-bold">{t('skills.title')}</h3>
             </div>
             <div className="grid grid-cols-3 gap-2">
@@ -154,8 +154,8 @@ export default function Hero() {
           </a>
 
           {/* Ligne 2 - Colonne 1: Projects - 1 colonne */}
-          <a href="/projects" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 no-underline block">
-            <div className="mb-6">
+          <a href="/projects" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] hover:shadow-orange-500/20 hover:border-orange-500 transition-all duration-300 no-underline block">
+            <div className="mb-8">
               <div className="flex items-center justify-between">
                 <h3 className="text-2xl font-bold">{t('projects.title')}</h3>
               </div>
@@ -181,15 +181,15 @@ export default function Hero() {
           </a>
 
           {/* Ligne 2 - Colonne 2: Hobbies - 1 colonne */}
-          <a href="/hobbies" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between no-underline">
-            <div className="mb-6">
+          <a href="/hobbies" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] hover:shadow-orange-500/20 hover:border-orange-500 transition-all duration-300 flex flex-col justify-between no-underline">
+            <div className="mb-8">
               <h3 className="text-2xl font-bold">{t('hobbies.title')}</h3>
             </div>
           </a>
 
           {/* Row 2 - Column 3: Experiences - 2 colonnes */}
-          <a href="/experiences" className="lg:col-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between max-h-80 no-underline">
-            <div className="mb-6">
+          <a href="/experiences" className="lg:col-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] hover:shadow-orange-500/20 hover:border-orange-500 transition-all duration-300 flex flex-col justify-between max-h-80 no-underline">
+            <div className="mb-8">
               <h3 className="text-2xl font-bold">{t('experiences.title')}</h3>
             </div>
           </a>

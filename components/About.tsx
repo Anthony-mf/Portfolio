@@ -13,7 +13,7 @@ export default function About() {
                     <h1 className="text-5xl md:text-6xl font-bold mb-6">
                         {t('about.title')}
                     </h1>
-                    <p className="text-xl text-gray-400 max-w-3xl leading-relaxed">
+                    <p className="text-xl text-gray-400 leading-relaxed">
                         {t('about.intro')}
                     </p>
                 </div>
@@ -41,14 +41,6 @@ export default function About() {
                                 <div>
                                     <p className="text-sm text-gray-400">{t('about.personalInfo.locationLabel')}</p>
                                     <p className="text-lg font-semibold">{t('about.personalInfo.location')}</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-4">
-                                <FaHeart className="text-2xl text-orange-400" />
-                                <div>
-                                    <p className="text-sm text-gray-400">{t('about.personalInfo.interestsLabel')}</p>
-                                    <p className="text-lg font-semibold">{t('about.personalInfo.interests')}</p>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +78,6 @@ export default function About() {
                         <div className="space-y-4 text-gray-400 leading-relaxed">
                             <p>{t('about.bio.paragraph1')}</p>
                             <p>{t('about.bio.paragraph2')}</p>
-                            <p>{t('about.bio.paragraph3')}</p>
                         </div>
                     </div>
 
