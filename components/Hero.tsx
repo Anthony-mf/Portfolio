@@ -1,50 +1,8 @@
 'use client';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import { SiMongodb, SiNextdotjs, SiHtml5, SiCss3, SiJavascript, SiReact, SiPostgresql } from 'react-icons/si';
-import { TbBrandCSharp, TbFileCv } from 'react-icons/tb';
+import { TbFileCv } from 'react-icons/tb';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Typewriter from './Typewriter';
-import { DiMsqlServer } from 'react-icons/di';
-
-
-const skills = [
-  {
-    icon: SiHtml5,
-    color: '#E34F26',
-  },
-  {
-    icon: SiCss3,
-    color: '#1572B6',
-  },
-  {
-    icon: SiJavascript,
-    color: '#F7DF1E',
-  },
-  {
-    icon: TbBrandCSharp,
-    color: '#68217A',
-  },
-  {
-    icon: SiReact,
-    color: '#61DAFB',
-  },
-  {
-    icon: SiNextdotjs,
-    color: '#FFFFFF',
-  },
-  {
-    icon: SiMongodb,
-    color: '#47A248',
-  },
-  {
-    icon: SiPostgresql,
-    color: '#336791',
-  },
-  {
-    icon: DiMsqlServer,
-    color: '#FFFFFF',
-  }
-] as const;
 
 const projects = [
   {
@@ -97,24 +55,41 @@ export default function Hero() {
 
           {/* Ligne 1 - Colonne 1: About - 2 colonnes */}
           <a href="/about" className="lg:col-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 flex flex-col justify-between shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500 cursor-pointer max-h-80 no-underline">
-            <div className="mb-8">
-              <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">
-                <Typewriter
-                  texts={[t('hero.alternant'), t('hero.futureDeveloper')]}
-                  typingDelay={100}
-                  deletingDelay={50}
-                  pauseDelay={2000}
-                />
-              </p>
-              <h1 className="text-3xl font-bold mb-3">
-                Anthony<br />
-                <span className="bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent">
-                  MARQUES FELIX
-                </span>
-              </h1>
-              <p className="text-lg text-gray-400 leading-relaxed">
-                {t('hero.description')}
-              </p>
+            <div className="flex items-start justify-between gap-6">
+              <div className="flex-1 mb-8">
+                <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">
+                  <Typewriter
+                    texts={[t('hero.alternant'), t('hero.futureDeveloper')]}
+                    typingDelay={100}
+                    deletingDelay={50}
+                    pauseDelay={2000}
+                  />
+                </p>
+                <h1 className="text-3xl font-bold mb-3">
+                  Anthony<br />
+                  <span className="bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent">
+                    MARQUES FELIX
+                  </span>
+                </h1>
+                <p className="text-lg text-gray-400 leading-relaxed">
+                  {t('hero.description')}
+                </p>
+              </div>
+
+              {/* Profile Photo */}
+              <div className="flex-shrink-0">
+                <div className="relative w-32 h-32 rounded-full overflow-hidden border-gradient-to-r from-orange-400 to-yellow-500 shadow-lg">
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-yellow-500 p-1 rounded-full">
+                    <div className="w-full h-full rounded-full overflow-hidden bg-black">
+                      <img
+                        src="/images/Profile.webp"
+                        alt="Anthony Marques Felix"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </a>
 
@@ -139,17 +114,6 @@ export default function Hero() {
               <h3 className="text-2xl font-bold">{t('skills.title')}</h3>
             </div>
             <div className="grid grid-cols-3 gap-2">
-              {skills.map((skill, index) => {
-                const Icon = skill.icon;
-                return (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center gap-2 p-3"
-                  >
-                    <Icon className="text-4xl" style={{ color: skill.color }} />
-                  </div>
-                );
-              })}
             </div>
           </a>
 

@@ -9,13 +9,30 @@ export default function About() {
         <section id="about" className="min-h-screen pt-32 pb-16 px-6">
             <div className="max-w-7xl mx-auto">
                 {/* Hero Section */}
-                <div className="mb-16">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                        {t('about.title')}
-                    </h1>
-                    <p className="text-xl text-gray-400 leading-relaxed">
-                        {t('about.intro')}
-                    </p>
+                <div className="mb-16 flex items-start justify-between gap-12">
+                    <div className="flex-1">
+                        <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                            {t('about.title')}
+                        </h1>
+                        <p className="text-xl text-gray-400 leading-relaxed">
+                            {t('about.intro')}
+                        </p>
+                    </div>
+
+                    {/* Profile Photo */}
+                    <div className="flex-shrink-0 hidden md:block">
+                        <div className="relative w-48 h-48 rounded-full overflow-hidden shadow-2xl">
+                            <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-yellow-500 p-1 rounded-full">
+                                <div className="w-full h-full rounded-full overflow-hidden bg-black">
+                                    <img
+                                        src="/images/Profile.webp"
+                                        alt="Anthony Marques Felix"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Content Grid */}
