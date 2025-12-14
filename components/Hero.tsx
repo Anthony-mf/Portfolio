@@ -87,8 +87,8 @@ export default function Hero() {
               <a
                 key={href}
                 href={href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={href.startsWith('mailto:') ? undefined : '_blank'}
+                rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
                 className={`bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl aspect-square flex items-center justify-center text-gray-400 cursor-pointer hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl max-w-36 max-h-36 ${accent} ${shadow}`}
               >
                 <Icon className="w-10 h-10" />
@@ -216,7 +216,7 @@ export default function Hero() {
                 </a>
 
                 <a
-                  href="/experiences/internship"
+                  href="/experiences/internships"
                   className="group relative px-8 py-4 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border-2 border-purple-500/30 hover:border-purple-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 no-underline overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />

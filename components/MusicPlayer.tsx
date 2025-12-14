@@ -33,7 +33,7 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
     const prevTrack = tracks[getPrevIndex()];
     const nextTrack = tracks[getNextIndex()];
 
-    // Reset playback when track changes
+    // Reset playback when track changes (NOT when play/pause changes)
     useEffect(() => {
         const audio = audioRef.current;
         if (!audio) return;
@@ -44,7 +44,7 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
         if (isPlaying) {
             audio.play().catch(() => setIsPlaying(false));
         }
-    }, [currentTrackIndex, isPlaying]);
+    }, [currentTrackIndex]); // Removed isPlaying from dependencies
 
     useEffect(() => {
         const audio = audioRef.current;
@@ -103,12 +103,13 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
         setIsMuted(!isMuted);
     };
 
+
     const goToPreviousTrack = () => {
         setSlideDirection('right');
         setTimeout(() => {
             setCurrentTrackIndex(getPrevIndex());
             setTimeout(() => setSlideDirection(null), 50);
-        }, 400);
+        }, 300);
     };
 
     const goToNextTrack = () => {
@@ -116,7 +117,7 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
         setTimeout(() => {
             setCurrentTrackIndex(getNextIndex());
             setTimeout(() => setSlideDirection(null), 50);
-        }, 400);
+        }, 300);
     };
 
     const formatTime = (time: number) => {
@@ -130,10 +131,11 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
         <div className="w-full mx-auto mt-22 mb-8 px-4">
             <audio ref={audioRef} src={currentTrack.audioSrc} />
 
+
             {/* Circular Carousel */}
             <div className="relative h-72 mb-8 flex items-center justify-center perspective-1000">
                 <div
-                    className={`flex items-center justify-center gap-12 transition-transform duration-500 ease-out ${slideDirection === 'left' ? 'animate-slide-to-left' :
+                    className={`flex items-center justify-center gap-12 transition-all duration-300 ease-in-out ${slideDirection === 'left' ? 'animate-slide-to-left' :
                         slideDirection === 'right' ? 'animate-slide-to-right' : ''
                         }`}
                 >
@@ -315,6 +317,7 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
                 </div>
             </div>
 
+
             <style jsx>{`
                 .perspective-1000 {
                     perspective: 1000px;
@@ -322,30 +325,40 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
 
                 @keyframes slideToLeft {
                     0% {
-                        transform: translateX(0);
+                        transform: translateX(0) scale(1) rotateY(0deg);
+                        opacity: 1;
+                    }
+                    50% {
+                        transform: translateX(-30%) scale(0.8) rotateY(-15deg);
+                        opacity: 0.5;
                     }
                     100% {
-                        transform: translateX(-100%);
+                        transform: translateX(-100%) scale(0.6) rotateY(-30deg);
                         opacity: 0;
                     }
                 }
 
                 @keyframes slideToRight {
                     0% {
-                        transform: translateX(0);
+                        transform: translateX(0) scale(1) rotateY(0deg);
+                        opacity: 1;
+                    }
+                    50% {
+                        transform: translateX(30%) scale(0.8) rotateY(15deg);
+                        opacity: 0.5;
                     }
                     100% {
-                        transform: translateX(100%);
+                        transform: translateX(100%) scale(0.6) rotateY(30deg);
                         opacity: 0;
                     }
                 }
 
                 .animate-slide-to-left {
-                    animation: slideToLeft 0.5s ease-out forwards;
+                    animation: slideToLeft 0.3s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
                 }
 
                 .animate-slide-to-right {
-                    animation: slideToRight 0.5s ease-out forwards;
+                    animation: slideToRight 0.3s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
                 }
 
                 .progress-bar::-webkit-slider-thumb {

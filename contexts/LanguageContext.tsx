@@ -10,6 +10,16 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 const translations = {
   fr: {
+    // Navigation
+    'nav.home': 'Accueil',
+    'nav.about': 'À Propos',
+    'nav.skills': 'Compétences',
+    'nav.strengths': 'Atouts',
+    'nav.hobbies': 'Loisirs',
+    'nav.projects': 'Projets',
+    'nav.jobs': 'Jobs',
+    'nav.internships': 'Stages / Alternances',
+
     // Hero
     'hero.futureDeveloper': 'Un Futur Développeur',
     'hero.alternant': 'Alternant',
@@ -104,7 +114,7 @@ const translations = {
     // Projects
     'projects.title': 'Projets',
     'projects.pageTitle': 'Mes Projets',
-    'projects.intro': 'Découvrez mes projets récents qui démontrent mes compétences en développement et ma passion pour la création d\'applications innovantes.',
+    'projects.intro': 'Découvrez mes projets récents qui démontrent mes compétences en développement et ma passion pour la création d\'applications innovantes. Cliquez sur un projet pour accéder au Repository GitHub.',
 
     'projects.apiVinted.category': 'API',
     'projects.apiVinted.title': 'API Vinted',
@@ -190,6 +200,16 @@ const translations = {
     'misc.cvLink': '/cvs/CV_MARQUES_FELIX_Anthony.pdf',
   },
   en: {
+    // Navigation
+    'nav.home': 'Home',
+    'nav.about': 'About',
+    'nav.skills': 'Skills',
+    'nav.strengths': 'Strengths',
+    'nav.hobbies': 'Hobbies',
+    'nav.projects': 'Projects',
+    'nav.jobs': 'Jobs',
+    'nav.internships': 'Internships / Apprenticeships',
+
     'navbar.letsTalk': 'Let\'s talk',
     'navbar.downloadCV': 'Download my CV',
 
@@ -199,17 +219,42 @@ const translations = {
     'hero.buildingSkills': 'Building Skills',
     'hero.forFuture': 'For Future.',
 
+    // About Page
+    'about.title': 'About Me',
+    'about.intro': 'Passionate about technology and development, I am constantly seeking new challenges and opportunities to learn and grow.',
+    'about.personalInfo.title': 'Personal Information',
+    'about.personalInfo.ageLabel': 'Age',
+    'about.personalInfo.age': '20 years old',
+    'about.personalInfo.locationLabel': 'Location',
+    'about.personalInfo.location': 'Annecy / Lyon',
+    'about.education.title': 'Education',
+    'about.education1.period': '2023 - 2026',
+    'about.education1.degree': 'Bachelor in Computer Science',
+    'about.education1.school': 'University of Savoie Mont Blanc, IUT of Annecy',
+    'about.education1.description': 'Track A: Application Development: design, development, validation',
+    'about.education1.strength': 'Web and mobile application development, teamwork on a home automation project.',
+    'about.education2.period': '2023',
+    'about.education2.degree': 'Baccalaureate in Science and Technology of Industry and Sustainable Development (STI2D)',
+    'about.education2.school': 'Louis Lachenal High School, Argonay',
+    'about.education2.description': 'Information Systems and Digital Option (SIN), with Honors',
+    'about.education2.strength': 'Teamwork on an end-of-year project, knowledge about sustainable development.',
+    'about.bio.title': 'My Journey',
+    'about.bio.paragraph1': 'Currently in my 3rd year of Computer Science Bachelor, I specialize in full-stack development with a particular interest in modern web technologies and user experience.',
+    'about.bio.paragraph2': 'My journey has allowed me to develop strong skills in front-end and back-end development, while cultivating a passion for creating intuitive and aesthetic user interfaces.',
+    'about.bio.paragraph3': 'Outside of coding, I am interested in drawing, which enriches my vision of development and allows me to bring a creative touch to my projects.',
+
     // Strengths
     'strengths.title': 'Strengths',
     'strengths.pageTitle': 'My Strengths',
     'strengths.intro': 'Check out my technical skills, my level in foreign languages, as well as my soft skills:',
-    'strengths.tabs.digital': 'Digital Tools',
+    'strengths.tabs.digital': 'Technical Skills',
     'strengths.tabs.languages': 'Foreign Languages',
     'strengths.tabs.softSkills': 'Soft Skills',
-    'strengths.digital.items': 'Microsoft Office Suite (Word, Excel, PowerPoint): advanced level (creating dynamic pivot tables in Excel, interactive slideshows). | Canva: proficiency in creating visuals and communication materials. | WordPress: solid foundations (creating and customizing web pages). | Google Workspace: collaborative use (Docs, Sheets, Drive, etc.). | Sphinx iQ3: solid foundations (questionnaire creation, response entry, data processing with flat and cross tabulations)',
-    'strengths.languages.items': 'English: B2 level (written and oral comprehension and expression). | Spanish: A2 level (basic written and oral comprehension and expression).',
+    'strengths.digital.items': 'Front-end: React, Next.js, Tailwind CSS, TypeScript, JavaScript, HTML, CSS, WPF, WinForms. | Back-end: Node.js, Express.js, Python, Flask, C#. | Database: MongoDB, PostgreSQL, SQL Server. | Design: Figma, Canva.',
+    'strengths.languages.items': 'English: Upper Intermediate B2 level (written and oral comprehension and expression). | Spanish: Elementary A1 level (basic written and oral comprehension and expression). | Portuguese: Elementary A1 level (basic written and oral comprehension and expression) | French: Native level.',
     'strengths.softSkills.items': 'Teamwork: ability to collaborate effectively in group projects. | Communication: ability to convey ideas clearly, both in writing and orally. | Adaptability: flexibility in the face of changes and new situations. | Time management: organization and prioritization of tasks to meet deadlines. | Problem solving: analytical approach to identify and resolve challenges. | Creativity: ability to propose innovative and original solutions.',
 
+    // Skills
     'skills.title': 'Skills',
     'skills.pageTitle': 'My Skills',
     'skills.intro': 'Being in 3rd year of Computer Science Bachelor, Application Development track: design, development, validation, I am preparing only the first 2 competencies and the last competency of the national program.',
@@ -228,65 +273,99 @@ const translations = {
 
     // C1 Levels
     'skills.levels.c1.level1.title': 'Develop simple computer applications',
-    'skills.levels.c1.level1.ac': 'AC11.01 | Implement simple designs | AC11.02 | Develop simple designs | AC11.03 | Perform tests and evaluate their results against specifications | AC11.04 | Develop user interfaces',
     'skills.levels.c1.level2.title': 'From requirements to a complete application',
-    'skills.levels.c1.level2.ac': 'AC21.01 | Develop and implement functional and non-functional specifications from requirements | AC21.02 | Apply accessibility and ergonomics principles | AC21.03 | Adopt good design and programming practices | AC21.04 | Verify and validate application quality through testing',
     'skills.levels.c1.level3.title': 'Adapt applications across multiple platforms (embedded, web, mobile, IoT…)',
-    'skills.levels.c1.level3.ac': 'AC31.01 | Choose and implement appropriate architectures | AC31.02 | Evolve an existing application | AC31.03 | Integrate solutions into a production environment',
+    'skills.levels.c1.level3.ac': 'AC31.01: Choose and implement appropriate architectures | AC31.02: Evolve an existing application | AC31.03: Integrate solutions into a production environment',
 
     // C2 Levels
     'skills.levels.c2.level1.title': 'Understand and build algorithms',
-    'skills.levels.c2.level1.ac': 'AC12.01: Analyze a problem methodically (breaking down into simple algorithmic elements, data structure...) | AC12.02: Compare algorithms for classic problems (simple sorts, search...) | AC12.03: Formalize and implement mathematical tools for computer science',
     'skills.levels.c2.level2.title': 'Select appropriate algorithms to solve a given problem',
-    'skills.levels.c2.level2.ac': 'AC22.01: Choose complex data structures adapted to the problem | AC22.02: Use appropriate algorithmic techniques for complex problems (e.g. operational research, tree methods, global optimization, artificial intelligence...) | AC22.03: Understand the challenges and means of securing data and code | AC22.04: Evaluate the environmental and societal impact of proposed solutions',
     'skills.levels.c2.level3.title': 'Analyze and optimize applications',
     'skills.levels.c2.level3.ac': 'AC32.01: Anticipate the results of various metrics (execution time, memory usage, scalability...) | AC32.02: Profile, analyze and justify the behavior of existing code | AC32.03: Choose and use libraries and methods dedicated to the application domain (imaging, immersion, artificial intelligence, video games, parallelism, formal calculation...)',
 
     // C3 Levels
     'skills.levels.c3.level1.title': 'Install and configure a workstation',
-    'skills.levels.c3.level1.ac': 'AC13.01: Identify different components (hardware and software) of a digital system | AC13.02: Use basic functionalities of a multitasking / multiuser system | AC13.03: Install and configure an operating system and development tools | AC13.04: Configure a workstation in a corporate network',
     'skills.levels.c3.level2.title': 'Deploy services in a network architecture',
-    'skills.levels.c3.level2.ac': 'AC23.01: Design and develop communicating applications | AC23.02: Use virtualized servers and network services | AC23.03: Secure services and data of a system',
 
     // C4 Levels
     'skills.levels.c4.level1.title': 'Design and implement a database from client specifications',
-    'skills.levels.c4.level1.ac': 'AC14.01: Update and query a relational database (in direct queries or through an application) | AC14.02: Visualize data | AC14.03: Design a relational database from specifications',
     'skills.levels.c4.level2.title': 'Optimize a database, interact with an application and implement security',
-    'skills.levels.c4.level2.ac': 'AC24.01: Optimize company data models | AC24.02: Ensure data security (integrity and confidentiality) | AC24.03: Organize data restitution through programming and visualization | AC24.04: Manipulate heterogeneous data',
 
     // C5 Levels
     'skills.levels.c5.level1.title': 'Identify business needs of clients and users',
-    'skills.levels.c5.level1.ac': 'AC15.01: Understand client and user needs | AC15.02: Set up project management tools | AC15.03: Identify actors and different phases of a development cycle',
     'skills.levels.c5.level2.title': 'Apply a project monitoring approach based on business needs of clients and users',
-    'skills.levels.c5.level2.ac': 'AC25.01: Identify processes present in an organization to improve information systems | AC25.02: Formalize client and user needs | AC25.03: Identify feasibility criteria for an IT project | AC25.04: Define and implement a project monitoring approach',
 
     // C6 Levels
     'skills.levels.c6.level1.title': 'Identify skills to work in a team',
-    'skills.levels.c6.level1.ac': 'AC16.01: Understand the digital ecosystem | AC16.02: Discover required skills according to different IT sectors | AC16.03: Identify statuses, functions and roles of each member of a multidisciplinary team | AC16.04: Acquire interpersonal skills to work in a team',
     'skills.levels.c6.level2.title': 'Position your role and missions within an IT team',
-    'skills.levels.c6.level2.ac': 'AC26.01: Understand the diversity, structure and dimension of IT in an organization (ESN, DSI,...) | AC26.02: Apply an approach to integrate an IT team within an organization | AC26.03: Mobilize interpersonal skills to work in an IT team | AC26.04: Report on professional activity',
     'skills.levels.c6.level3.title': 'Manage an IT team',
     'skills.levels.c6.level3.ac': 'AC36.01: Organize and share technological and informational watch | AC36.02: Identify challenges of digital innovation economy | AC36.03: Guide IT change management within an organization | AC36.04: Support IT project management',
 
+    // Experiences
+    'experiences.title': 'Experiences',
+
+    // Projects
     'projects.title': 'Projects',
     'projects.pageTitle': 'My Projects',
-    'projects.intro': 'Discover my recent projects that demonstrate my development skills and passion for creating innovative applications.',
-    'projects.webApplication': 'Web Application',
-    'projects.fullStack': 'Full Stack',
-    'projects.3dArt': '3D Art',
-    'projects.meditation.title': 'Meditation Course',
-    'projects.meditation.description': 'Interactive web application for learning meditation with guided sessions and progress tracking.',
-    'projects.ecommerce.title': 'E-commerce Platform',
-    'projects.ecommerce.description': 'Complete e-commerce solution with product management, shopping cart, and secure payment system.',
-    'projects.portfolio.title': 'Personal Portfolio',
-    'projects.portfolio.description': 'Modern and responsive portfolio website showcasing my skills, projects and professional experiences.',
+    'projects.intro': 'Discover my recent projects that demonstrate my development skills and passion for creating innovative applications. Click on a project to access the GitHub Repository.',
 
+    'projects.apiVinted.category': 'API',
+    'projects.apiVinted.title': 'Vinted API',
+    'projects.apiVinted.description': 'This is an academic project, carried out in a group of 5. It is an API developed in C# and ASP.NET Core that allows you to find clothing items and secondary accessories. It includes unit tests.',
+
+    'projects.homeKit.category': 'Home Automation',
+    'projects.homeKit.title': 'HomeKit',
+    'projects.homeKit.description': 'Carried out in a group of 3, this project is still in development, but it is a simulation in a student studio connected to IoT sensors. The goal will be to set up a home automation system to control Z-Wave devices for the best working and concentration conditions. There will be an application developed in Kotlin to control Z-Wave devices. Also the integration of AI allowing voice recognition to facilitate input.',
+
+    'projects.projetX.category': 'Web Application',
+    'projects.projetX.title': 'Project X',
+    'projects.projetX.description': 'Small web application developed by 4 people in one week, aiming to reproduce the X website (formerly Twitter). The main features are available, from login and registration to posting tweets, as well as the ability to follow users and like them.',
+
+    'projects.IoTRaspberry.category': 'IoT',
+    'projects.IoTRaspberry.title': 'IoT Raspberry',
+    'projects.IoTRaspberry.description': 'Small IoT project developed in Python, aiming to make an impostor game with an AI used to detect abnormal temperature values among 3 interconnected raspberries. These are connected to an MQTT broker and transmit temperature data. Then, each raspberry sends a prompt to an AI so that it can determine if the temperature is abnormal, and votes for the player who has the most abnormal value. Temperatures are obtained by a Weather API.',
+
+    // Jobs
+    'jobs.title': 'Jobs',
+    'jobs.pageTitle': 'My Jobs',
+
+    'job.auchan.title': 'Summer Job',
+    'job.auchan.company': 'Auchan',
+    'job.auchan.period': 'July 2022 - September 2022',
+    'job.auchan.location': 'Epagny, Haute-Savoie, France',
+    'job.auchan.description': 'Summer job at Auchan Drive, as an order picker.',
+    'job.auchan.tasks': 'Order preparation and customer relations.',
+
+    'job.carrefour.title': 'Student Job',
+    'job.carrefour.company': 'Carrefour',
+    'job.carrefour.period': 'September 2024 - April 2025',
+    'job.carrefour.location': 'Annecy, Haute-Savoie, France',
+    'job.carrefour.description': 'Student job at Carrefour Drive, as an order picker.',
+    'job.carrefour.tasks': 'Order preparation, product reception, stock management and customer relations.',
+
+    // Internships
+    'internships.title': 'Internships / Apprenticeships',
+    'internships.pageTitle': 'My Internships / Apprenticeships',
+
+    'internship.title': 'Software Developer Intern',
+    'internship.company': 'Timet Savoie',
+    'internship.period': 'April 2025 - June 2025',
+    'internship.location': 'Ugine, Savoie, France',
+    'internship.description': 'Software development internship in C# with WinForms to develop a software for tracking titanium production in the Metallurgical Control Workshop, used to test titanium compliance for the customer. (Still ongoing)',
+
+    'apprentice.title': 'Software Developer Apprentice',
+    'apprentice.company': 'Timet Savoie',
+    'apprentice.period': 'August 2025 - Present',
+    'apprentice.location': 'Ugine, Savoie, France',
+    'apprentice.description': 'Software development apprenticeship in VB .Net with WinForms, taking over an existing software for an upgrade and also various improvements concerning a software for tracking titanium production in the different production workshops. (Still ongoing)',
+
+    // Hobbies
     'hobbies.title': 'Hobbies',
     'hobbies.pageTitle': 'My Hobbies',
     'hobbies.intro': 'Outside of development, I cultivate various passions that enrich my creativity and personal balance.',
-    'hobbies.scooter.title': 'Scooter Freestyle',
-    'hobbies.scooter.description': 'I practice Scooter Freestyle since my 12 years old.',
-    'hobbies.scooter.expandedDescription': 'I have been practicing scooter freestyle since I was 12 years old, allowing me to strengthen my balance and coordination, as well as my determination and perseverance. A video of me in action below.',
+    'hobbies.scooter.title': 'Freestyle Scooter',
+    'hobbies.scooter.description': 'I have been practicing freestyle scooter since I was 12 years old.',
+    'hobbies.scooter.expandedDescription': 'I have been practicing freestyle scooter since I was 12 years old, allowing me to strengthen my balance and coordination, as well as my determination and perseverance. A video of me in action below.',
     'hobbies.gaming.title': 'Video Games',
     'hobbies.gaming.description': 'Passionate about video games, especially Open-Worlds.',
     'hobbies.gaming.expandedDescription': 'Passionate about video games, especially Open-Worlds, this has allowed me to discover new worlds and new stories, fueling my curiosity and imagination. For example, the game "Minecraft" shown below is a good example.',
@@ -303,41 +382,10 @@ const translations = {
     'hobbies.reading.description': 'Reading books.',
     'hobbies.reading.expandedDescription': 'Reading horror and science-fiction books, as shown below with the "Goosebumps" books.',
 
-    'experiences.title': 'Experiences',
-    'experiences.pageTitle': 'My Professional Experience',
-    'experiences.intro': 'My professional journey has allowed me to acquire practical skills and contribute to concrete projects.',
-    'experiences.exp1.title': 'Full-Stack Developer',
-    'experiences.exp1.company': 'Company XYZ',
-    'experiences.exp1.period': 'Sept 2023 - Present',
-    'experiences.exp1.location': 'Lens, France',
-    'experiences.exp1.description': 'Development of modern web applications in apprenticeship, participation in all phases of the development cycle.',
-    'experiences.exp1.tasks': 'Development of front-end features with React and Next.js | Creation of RESTful APIs with Node.js | Performance and user experience optimization | Collaboration in agile team with Git',
-    'experiences.exp2.title': 'Web Developer Intern',
-    'experiences.exp2.company': 'Startup ABC',
-    'experiences.exp2.period': 'April 2023 - June 2023',
-    'experiences.exp2.location': 'Lille, France',
-    'experiences.exp2.description': 'Discovery internship in web development within an innovative startup.',
-    'experiences.exp2.tasks': 'Development of responsive web pages | Integration of UI/UX mockups | Application testing and debugging | Learning development best practices',
-
-    'about.title': 'About Me',
-    'about.intro': 'Passionate about technology and development, I am constantly seeking new challenges and opportunities to learn and grow.',
-    'about.personalInfo.title': 'Personal Information',
-    'about.personalInfo.ageLabel': 'Age',
-    'about.personalInfo.age': '20 years old',
-    'about.personalInfo.locationLabel': 'Location',
-    'about.personalInfo.location': 'Annecy / Lyon',
-    'about.education.title': 'Education',
-    'about.education.period': '2022 - 2025',
-    'about.education.degree': 'Bachelor in Computer Science',
-    'about.education.school': 'IUT de Lens',
-    'about.education.description': 'Specialization in application development and implementation',
-    'about.bio.title': 'My Journey',
-    'about.bio.paragraph1': 'Currently in my 3rd year of Computer Science Bachelor, I specialize in full-stack development with a particular interest in modern web technologies and user experience.',
-    'about.bio.paragraph2': 'My journey has allowed me to develop strong skills in front-end and back-end development, while cultivating a passion for creating intuitive and aesthetic user interfaces.',
-    'about.bio.paragraph3': 'Outside of coding, I am interested in 3D art and design, which enriches my vision of development and allows me to bring a creative touch to my projects.',
-
+    // Footer
     'footer.rights': 'All rights reserved by Anthony Marques Felix',
 
+    // Misc
     'misc.cvLink': '/cvs/CV_Anthony_MARQUES_FELIX.pdf',
   }
 };
