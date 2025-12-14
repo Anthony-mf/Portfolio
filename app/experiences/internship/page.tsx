@@ -1,12 +1,12 @@
 import Navbar from '@/components/Navbar';
-import Experiences from '@/components/Jobs';
+import Internship from '@/components/Internship';
 import Footer from '@/components/Footer';
 
-export default function ExperiencesPage() {
+export default function InternshipPage() {
     return (
         <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white min-h-screen">
             <Navbar />
-            <Experiences />
+            <Internship />
             <Footer />
         </div>
     );

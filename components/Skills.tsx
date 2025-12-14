@@ -16,64 +16,65 @@ interface Competency {
 
 const competencies: Competency[] = [
     {
-        code: 'CE1',
-        titleKey: 'skills.ce1.title',
-        descriptionKey: 'skills.ce1.description',
+        code: 'C1',
+        titleKey: 'skills.c1.title',
+        descriptionKey: 'skills.c1.description',
         icon: FaCode,
         gradient: 'from-blue-500 to-cyan-500',
         accentColor: '#3B82F6',
-        levelsKey: 'ce1'
+        levelsKey: 'c1'
     },
     {
-        code: 'CE2',
-        titleKey: 'skills.ce2.title',
-        descriptionKey: 'skills.ce2.description',
+        code: 'C2',
+        titleKey: 'skills.c2.title',
+        descriptionKey: 'skills.c2.description',
         icon: FaRocket,
         gradient: 'from-purple-500 to-pink-500',
         accentColor: '#A855F7',
-        levelsKey: 'ce2'
+        levelsKey: 'c2'
     },
     {
-        code: 'CE3',
-        titleKey: 'skills.ce3.title',
-        descriptionKey: 'skills.ce3.description',
+        code: 'C3',
+        titleKey: 'skills.c3.title',
+        descriptionKey: 'skills.c3.description',
         icon: FaServer,
         gradient: 'from-green-500 to-emerald-500',
         accentColor: '#10B981',
-        levelsKey: 'ce3'
+        levelsKey: 'c3'
     },
     {
-        code: 'CE4',
-        titleKey: 'skills.ce4.title',
-        descriptionKey: 'skills.ce4.description',
+        code: 'C4',
+        titleKey: 'skills.c4.title',
+        descriptionKey: 'skills.c4.description',
         icon: FaDatabase,
         gradient: 'from-orange-500 to-red-500',
         accentColor: '#F97316',
-        levelsKey: 'ce4'
+        levelsKey: 'c4'
     },
     {
-        code: 'CE5',
-        titleKey: 'skills.ce5.title',
-        descriptionKey: 'skills.ce5.description',
+        code: 'C5',
+        titleKey: 'skills.c5.title',
+        descriptionKey: 'skills.c5.description',
         icon: FaProjectDiagram,
         gradient: 'from-yellow-500 to-amber-500',
         accentColor: '#EAB308',
-        levelsKey: 'ce5'
+        levelsKey: 'c5'
     },
     {
-        code: 'CE6',
-        titleKey: 'skills.ce6.title',
-        descriptionKey: 'skills.ce6.description',
+        code: 'C6',
+        titleKey: 'skills.c6.title',
+        descriptionKey: 'skills.c6.description',
         icon: FaUsers,
         gradient: 'from-indigo-500 to-blue-500',
         accentColor: '#6366F1',
-        levelsKey: 'ce6'
+        levelsKey: 'c6'
     }
 ];
 
 export default function Skills() {
     const { t } = useLanguage();
     const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+    const [expandedLevel3, setExpandedLevel3] = useState<number | null>(null);
 
     // Handle escape key to close expanded card
     useEffect(() => {
@@ -202,7 +203,7 @@ export default function Skills() {
                             {/* Close Button */}
                             <button
                                 onClick={() => setExpandedIndex(null)}
-                                className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 group z-10"
+                                className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 group z-10 cursor-pointer"
                                 aria-label="Close"
                             >
                                 <FaTimes className="text-2xl text-white/70 group-hover:text-white transition-colors" />
@@ -241,32 +242,51 @@ export default function Skills() {
                                             key={level}
                                             className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-white/10"
                                         >
-                                            <div className="flex items-start gap-4">
+                                            <div
+                                                className={`flex items-start gap-4 ${level === 3 ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''}`}
+                                                onClick={() => {
+                                                    if (level === 3) {
+                                                        setExpandedLevel3(expandedLevel3 === level ? null : level);
+                                                    }
+                                                }}
+                                            >
                                                 <div
                                                     className={`w-12 h-12 rounded-xl bg-gradient-to-br ${competencies[expandedIndex].gradient} flex items-center justify-center shadow-md flex-shrink-0`}
                                                 >
                                                     <span className="text-xl font-bold text-white">N{level}</span>
                                                 </div>
-                                                <h3 className="text-2xl font-bold text-white">
+                                                <h3 className="text-2xl font-bold text-white flex-grow">
                                                     {levelTitle}
                                                 </h3>
+                                                {level === 3 && (
+                                                    <FaChevronDown
+                                                        className={`text-xl text-white/70 transition-transform duration-300 mt-1 ${expandedLevel3 === level ? 'rotate-180' : ''
+                                                            }`}
+                                                        style={{ color: competencies[expandedIndex].accentColor }}
+                                                    />
+                                                )}
                                             </div>
 
-                                            {/* AC List - Only for Level 3 */}
+                                            {/* AC List - Only for Level 3 with drawer animation */}
                                             {level === 3 && (
-                                                <ul className="space-y-3 ml-16">
-                                                    {t(`skills.levels.${competencies[expandedIndex].levelsKey}.level${level}.ac`)
-                                                        .split('|')
-                                                        .map((ac, acIdx) => (
-                                                            <li key={acIdx} className="flex items-start gap-3">
-                                                                <div
-                                                                    className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
-                                                                    style={{ backgroundColor: competencies[expandedIndex].accentColor }}
-                                                                />
-                                                                <span className="text-gray-300 leading-relaxed">{ac.trim()}</span>
-                                                            </li>
-                                                        ))}
-                                                </ul>
+                                                <div
+                                                    className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedLevel3 === level ? 'max-h-[2000px] opacity-100 mt-6' : 'max-h-0 opacity-0'
+                                                        }`}
+                                                >
+                                                    <ul className="space-y-3 ml-16">
+                                                        {t(`skills.levels.${competencies[expandedIndex].levelsKey}.level${level}.ac`)
+                                                            .split('|')
+                                                            .map((ac, acIdx) => (
+                                                                <li key={acIdx} className="flex items-start gap-3">
+                                                                    <div
+                                                                        className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
+                                                                        style={{ backgroundColor: competencies[expandedIndex].accentColor }}
+                                                                    />
+                                                                    <span className="text-gray-300 leading-relaxed">{ac.trim()}</span>
+                                                                </li>
+                                                            ))}
+                                                    </ul>
+                                                </div>
                                             )}
                                         </div>
                                     );

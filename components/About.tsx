@@ -9,7 +9,7 @@ export default function About() {
         <section id="about" className="min-h-screen pt-32 pb-16 px-6">
             <div className="max-w-7xl mx-auto">
                 {/* Hero Section */}
-                <div className="mb-16 flex items-start justify-between gap-12">
+                <div className="mb-8 flex items-start justify-between gap-12">
                     <div className="flex-1">
                         <h1 className="text-5xl md:text-6xl font-bold mb-6">
                             {t('about.title')}
@@ -64,30 +64,51 @@ export default function About() {
                     </div>
 
                     {/* Education Card */}
-                    <div className="bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300">
+                    <div className="lg:row-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300">
                         <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent">
                             {t('about.education.title')}
                         </h2>
 
-                        <div className="space-y-6">
-                            {/* Education Timeline Item */}
-                            <div className="relative pl-8 border-l-2 border-orange-400/30">
-                                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-orange-400"></div>
-                                <div>
-                                    <p className="text-sm text-gray-400 mb-1">{t('about.education.period')}</p>
-                                    <h3 className="text-xl font-bold mb-2">{t('about.education.degree')}</h3>
-                                    <p className="text-gray-400 mb-2">
-                                        <FaGraduationCap className="inline mr-2" />
-                                        {t('about.education.school')}
-                                    </p>
-                                    <p className="text-sm text-gray-500">{t('about.education.description')}</p>
+                        <div className="relative">
+                            {/* Continuous vertical line */}
+                            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-orange-400/30"></div>
+
+                            <div className="space-y-8">
+                                {/* First Education Timeline Item */}
+                                <div className="relative pl-8">
+                                    <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-orange-400"></div>
+                                    <div>
+                                        <p className="text-sm text-gray-400 mb-1">{t('about.education1.period')}</p>
+                                        <h3 className="text-xl font-bold mb-2">{t('about.education1.degree')}</h3>
+                                        <p className="text-gray-400 mb-2">
+                                            <FaGraduationCap className="inline mr-2" />
+                                            {t('about.education1.school')}
+                                        </p>
+                                        <p className="text-sm text-gray-500 mb-4">{t('about.education1.description')}</p>
+                                        <p className="text-sm text-gray-500 italic">{t('about.education1.strength')}</p>
+                                    </div>
+                                </div>
+
+                                {/* Second Education Timeline Item */}
+                                <div className="relative pl-8">
+                                    <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-orange-400"></div>
+                                    <div>
+                                        <p className="text-sm text-gray-400 mb-1">{t('about.education2.period')}</p>
+                                        <h3 className="text-xl font-bold mb-2">{t('about.education2.degree')}</h3>
+                                        <p className="text-gray-400 mb-2">
+                                            <FaGraduationCap className="inline mr-2" />
+                                            {t('about.education2.school')}
+                                        </p>
+                                        <p className="text-sm text-gray-500 mb-4">{t('about.education2.description')}</p>
+                                        <p className="text-sm text-gray-500 italic">{t('about.education2.strength')}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Biography Card - Full Width */}
-                    <div className="lg:col-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300">
+                    <div className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300">
                         <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent">
                             {t('about.bio.title')}
                         </h2>

@@ -1,21 +1,9 @@
 'use client';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaGamepad, FaMusic, FaPen, FaBook, FaProjectDiagram, FaBriefcase, FaGraduationCap } from 'react-icons/fa';
+import { GiKickScooter, GiClapperboard } from 'react-icons/gi';
 import { TbFileCv } from 'react-icons/tb';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Typewriter from './Typewriter';
-
-const projects = [
-  {
-    title: 'Meditation Course',
-    category: 'Web Application',
-    image: '🧘',
-  },
-  {
-    title: 'E-commerce Platform',
-    category: 'Full Stack',
-    image: '🛒',
-  },
-] as const;
 
 export default function Hero() {
   const { t, language } = useLanguage();
@@ -51,7 +39,7 @@ export default function Hero() {
     <section className="pt-32 pb-16 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Grille asymétrique : Ligne 1 [2fr_1fr_1fr], Ligne 2 [1fr_1fr_2fr] */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-4 gap-8">
 
           {/* Ligne 1 - Colonne 1: About - 2 colonnes */}
           <a href="/about" className="lg:col-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 flex flex-col justify-between shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500 cursor-pointer max-h-80 no-underline">
@@ -109,35 +97,52 @@ export default function Hero() {
           </div>
 
           {/* Ligne 1 - Colonne 3 : Skills Icons - 1 colonne */}
-          <a href="/skills" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-6 flex flex-col justify-between shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500 cursor-pointer max-h-80 no-underline">
-            <div className="flex items-center justify-between mb-8">
+          <a href="/skills" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-6 flex flex-col shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500 cursor-pointer max-h-80 no-underline">
+            <div className="flex items-center justify-center mb-4">
               <h3 className="text-2xl font-bold">{t('skills.title')}</h3>
             </div>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="flex items-center justify-center flex-1">
+              <div className="grid grid-cols-3 gap-3">
+                {['C1', 'C2', 'C3', 'C4', 'C5', 'C6'].map((skill, index) => {
+                  const gradients = [
+                    'from-blue-500 to-cyan-500',
+                    'from-purple-500 to-pink-500',
+                    'from-green-500 to-emerald-500',
+                    'from-orange-500 to-red-500',
+                    'from-yellow-500 to-amber-500',
+                    'from-indigo-500 to-blue-500'
+                  ];
+                  return (
+                    <div
+                      key={skill}
+                      className={`rounded-2xl bg-gradient-to-br ${gradients[index]} flex items-center justify-center shadow-lg`}
+                      style={{
+                        width: '64px',
+                        height: '64px',
+                        minWidth: '64px',
+                        minHeight: '64px'
+                      }}
+                    >
+                      <span className="font-bold text-white" style={{ fontSize: '24px' }}>{skill}</span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </a>
 
-          {/* Ligne 2 - Colonne 1: Projects - 1 colonne */}
-          <a href="/projects" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] hover:shadow-orange-500/20 hover:border-orange-500 transition-all duration-300 no-underline block">
+          {/* Ligne 2 - Colonne 1: Strengths - 1 colonne */}
+          <a href="/strengths" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] hover:shadow-orange-500/20 hover:border-orange-500 transition-all duration-300 no-underline block">
             <div className="mb-8">
-              <div className="flex items-center justify-between">
-                <h3 className="text-2xl font-bold">{t('projects.title')}</h3>
-              </div>
+              <h3 className="text-2xl font-bold text-center">{t('strengths.title')}</h3>
             </div>
             <div className="space-y-4">
-              {projects.map((project, index) => (
-                <div
-                  key={index}
-                  className="p-4"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="text-4xl">{project.image}</div>
-                    <div>
-                      <p className="text-xs text-gray-400 uppercase tracking-wider">
-                        {project.category}
-                      </p>
-                      <h4 className="text-sm font-semibold">{project.title}</h4>
-                    </div>
+              {['strengths.tabs.digital', 'strengths.tabs.languages', 'strengths.tabs.softSkills'].map((strength, index) => (
+                <div key={index} className="flex justify-center gap-4">
+                  <div>
+                    <p className="w-52 px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-orange-400 to-yellow-500 text-black">
+                      {t(strength)}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -145,20 +150,86 @@ export default function Hero() {
           </a>
 
           {/* Ligne 2 - Colonne 2: Hobbies - 1 colonne */}
-          <a href="/hobbies" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] hover:shadow-orange-500/20 hover:border-orange-500 transition-all duration-300 flex flex-col justify-between no-underline">
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold">{t('hobbies.title')}</h3>
+          <a href="/hobbies" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] hover:shadow-orange-500/20 hover:border-orange-500 transition-all duration-300 flex flex-col no-underline">
+            <div className="mb-4">
+              <h3 className="text-2xl font-bold text-center">{t('hobbies.title')}</h3>
+            </div>
+            <div className="flex items-center justify-center flex-1">
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { icon: GiKickScooter, color: '#FF6B6B' },
+                  { icon: FaGamepad, color: '#4ECDC4' },
+                  { icon: FaMusic, color: '#95E1D3' },
+                  { icon: FaPen, color: '#F38181' },
+                  { icon: GiClapperboard, color: '#AA96DA' },
+                  { icon: FaBook, color: '#FCBAD3' }
+                ].map((hobby, index) => {
+                  const Icon = hobby.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="rounded-full flex items-center justify-center shadow-lg"
+                      style={{
+                        width: '64px',
+                        height: '64px',
+                        minWidth: '64px',
+                        minHeight: '64px',
+                        backgroundColor: `${hobby.color}20`,
+                        border: `2px solid ${hobby.color}40`
+                      }}
+                    >
+                      <Icon className="text-3xl" style={{ color: hobby.color }} />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </a>
 
           {/* Row 2 - Column 3: Experiences - 2 colonnes */}
-          <a href="/experiences" className="lg:col-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] hover:shadow-orange-500/20 hover:border-orange-500 transition-all duration-300 flex flex-col justify-between max-h-80 no-underline">
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold">{t('experiences.title')}</h3>
+          <div className="lg:col-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between max-h-80">
+            <div className="mb-6">
+              <h3 className="text-3xl font-bold mb-8">{t('experiences.title')}</h3>
+
+              {/* Experience Pills */}
+              <div className="flex flex-wrap gap-4 justify-center">
+                <a
+                  href="/experiences/projects"
+                  className="group relative px-8 py-4 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border-2 border-blue-500/30 hover:border-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 no-underline overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                  <span className="relative text-lg font-semibold text-white group-hover:text-blue-400 transition-colors flex items-center gap-3">
+                    <FaProjectDiagram className="text-xl" />
+                    {t('projects.title')}
+                  </span>
+                </a>
+
+                <a
+                  href="/experiences/jobs"
+                  className="group relative px-8 py-4 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border-2 border-green-500/30 hover:border-green-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/30 no-underline overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                  <span className="relative text-lg font-semibold text-white group-hover:text-green-400 transition-colors flex items-center gap-3">
+                    <FaBriefcase className="text-xl" />
+                    {t('jobs.title')}
+                  </span>
+                </a>
+
+                <a
+                  href="/experiences/internship"
+                  className="group relative px-8 py-4 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border-2 border-purple-500/30 hover:border-purple-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 no-underline overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                  <span className="relative text-lg font-semibold text-white group-hover:text-purple-400 transition-colors flex items-center gap-3">
+                    <FaGraduationCap className="text-xl" />
+                    {t('internships.title')}
+                  </span>
+                </a>
+              </div>
             </div>
-          </a>
+          </div>
         </div>
-      </div>
+      </div >
     </section >
   );
 }
