@@ -216,42 +216,42 @@ export default function Hero() {
             </div>
           </a>
 
-          {/* Row 2 - Column 3: Experiences - 2 colonnes */}
-          <div className="lg:col-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between max-h-80">
-            <div className="mb-6">
-              <h3 className="text-3xl font-bold mb-8">{t('experiences.title')}</h3>
+          {/* Ligne 2 - Colonne 3: Experiences - Responsive */}
+          <div className="md:col-span-2 lg:col-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-6 md:p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] hover:shadow-orange-500/20 hover:border-orange-500 transition-all duration-300 flex flex-col justify-between max-h-none md:max-h-80 no-underline">
+            <div className="mb-4 md:mb-6">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-8">{t('experiences.title')}</h3>
 
-              {/* Experience Pills */}
-              <div className="flex flex-wrap gap-4 justify-center">
+              {/* Experience Pills - Responsive */}
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center">
                 <a
                   href="/experiences/projects"
-                  className="group relative px-8 py-4 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border-2 border-blue-500/30 hover:border-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 no-underline overflow-hidden"
+                  className="group relative px-4 md:px-6 lg:px-8 py-3 md:py-4 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border-2 border-blue-500/30 hover:border-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 no-underline overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                  <span className="relative text-lg font-semibold text-white group-hover:text-blue-400 transition-colors flex items-center gap-3">
-                    <FaProjectDiagram className="text-xl" />
+                  <span className="relative text-base md:text-lg font-semibold text-white group-hover:text-blue-400 transition-colors flex items-center justify-center gap-2 md:gap-3">
+                    <FaProjectDiagram className="text-lg md:text-xl" />
                     {t('projects.title')}
                   </span>
                 </a>
 
                 <a
                   href="/experiences/jobs"
-                  className="group relative px-8 py-4 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border-2 border-green-500/30 hover:border-green-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/30 no-underline overflow-hidden"
+                  className="group relative px-4 md:px-6 lg:px-8 py-3 md:py-4 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border-2 border-green-500/30 hover:border-green-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/30 no-underline overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                  <span className="relative text-lg font-semibold text-white group-hover:text-green-400 transition-colors flex items-center gap-3">
-                    <FaBriefcase className="text-xl" />
+                  <span className="relative text-base md:text-lg font-semibold text-white group-hover:text-green-400 transition-colors flex items-center justify-center gap-2 md:gap-3">
+                    <FaBriefcase className="text-lg md:text-xl" />
                     {t('jobs.title')}
                   </span>
                 </a>
 
                 <a
                   href="/experiences/internships"
-                  className="group relative px-8 py-4 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border-2 border-purple-500/30 hover:border-purple-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 no-underline overflow-hidden"
+                  className="group relative px-4 md:px-6 lg:px-8 py-3 md:py-4 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border-2 border-purple-500/30 hover:border-purple-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 no-underline overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                  <span className="relative text-lg font-semibold text-white group-hover:text-purple-400 transition-colors flex items-center gap-3">
-                    <FaGraduationCap className="text-xl" />
+                  <span className="relative text-base md:text-lg font-semibold text-white group-hover:text-purple-400 transition-colors flex items-center justify-center gap-2 md:gap-3">
+                    <FaGraduationCap className="text-lg md:text-xl" />
                     {t('internships.title')}
                   </span>
                 </a>

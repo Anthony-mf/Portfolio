@@ -41,25 +41,25 @@ export default function ImageCarousel({ items, accentColor }: ImageCarouselProps
     };
 
     return (
-        <div className="w-full mx-auto mt-12 px-4">
-            {/* Circular Carousel */}
-            <div className="relative h-64 mb-8 flex items-center justify-center perspective-1000">
+        <div className="w-full mx-auto mt-8 md:mt-12 px-2 md:px-4">
+            {/* Circular Carousel - Responsive */}
+            <div className="relative h-48 md:h-64 mb-6 md:mb-8 flex items-center justify-center perspective-1000 overflow-hidden">
                 <div
-                    className={`flex items-center justify-center gap-12 transition-all duration-300 ease-in-out ${slideDirection === 'left' ? 'animate-slide-to-left' :
+                    className={`flex items-center justify-center gap-4 md:gap-8 lg:gap-12 transition-all duration-300 ease-in-out ${slideDirection === 'left' ? 'animate-slide-to-left' :
                         slideDirection === 'right' ? 'animate-slide-to-right' : ''
                         }`}
                 >
-                    {/* Previous Item (Left) */}
+                    {/* Previous Item (Left) - Hidden on mobile */}
                     <div
                         onClick={goToPrevious}
-                        className="cursor-pointer transform hover:scale-105 transition-transform duration-300 z-10"
+                        className="cursor-pointer transform hover:scale-105 transition-transform duration-300 z-10 hidden sm:block"
                         style={{
                             opacity: 0.5,
                             transform: 'scale(0.75) rotateY(20deg)',
                         }}
                     >
                         <div
-                            className="w-44 h-44 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm relative"
+                            className="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm relative"
                             style={{
                                 border: `2px solid ${accentColor}30`,
                                 background: `linear-gradient(135deg, ${accentColor}10, ${accentColor}05)`
@@ -70,16 +70,16 @@ export default function ImageCarousel({ items, accentColor }: ImageCarouselProps
                                 alt={prevItem.title}
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                                <p className="text-white text-sm font-semibold truncate">{prevItem.title}</p>
+                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2">
+                                <p className="text-white text-xs font-semibold truncate">{prevItem.title}</p>
                                 {prevItem.subtitle && (
-                                    <p className="text-gray-300 text-xs truncate">{prevItem.subtitle}</p>
+                                    <p className="text-gray-300 text-[10px] truncate">{prevItem.subtitle}</p>
                                 )}
                             </div>
                         </div>
                     </div>
 
-                    {/* Current Item (Center) */}
+                    {/* Current Item (Center) - Responsive */}
                     <div
                         className="z-20 transition-transform duration-300"
                         style={{
@@ -87,7 +87,7 @@ export default function ImageCarousel({ items, accentColor }: ImageCarouselProps
                         }}
                     >
                         <div
-                            className="w-72 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md"
+                            className="w-48 md:w-56 lg:w-72 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md"
                             style={{
                                 background: `linear-gradient(135deg, ${accentColor}15, ${accentColor}05)`,
                                 border: `2px solid ${accentColor}50`,
@@ -99,26 +99,33 @@ export default function ImageCarousel({ items, accentColor }: ImageCarouselProps
                                 <img
                                     src={currentItem.imageSrc}
                                     alt={currentItem.title}
-                                    className="w-full h-56 object-cover"
+                                    className="w-full h-48 md:h-56 lg:h-72 object-cover"
                                 />
                             </div>
 
                             {/* Info */}
-                            <div className="p-4">
-                                <div className="text-center">
-                                    <h3 className="text-xl font-bold text-white truncate">{currentItem.title}</h3>
-                                    {currentItem.subtitle && (
-                                        <p className="text-sm text-gray-400 truncate">{currentItem.subtitle}</p>
-                                    )}
-                                    <p className="text-xs text-gray-500 mt-1">
-                                        {currentIndex + 1} of {items.length}
-                                    </p>
+                            <div className="p-3 md:p-4 bg-gradient-to-t from-black/90 to-black/70">
+                                <h3 className="text-base md:text-lg font-bold text-white mb-1">{currentItem.title}</h3>
+                                {currentItem.subtitle && (
+                                    <p className="text-xs md:text-sm" style={{ color: accentColor }}>{currentItem.subtitle}</p>
+                                )}
+
+                                {/* Counter */}
+                                <div className="mt-2 md:mt-3 flex items-center justify-center gap-1">
+                                    {items.map((_, idx) => (
+                                        <div
+                                            key={idx}
+                                            className="h-1 rounded-full transition-all duration-300"
+                                            style={{
+                                                width: idx === currentIndex ? '24px' : '8px',
+                                                backgroundColor: idx === currentIndex ? accentColor : `${accentColor}40`
+                                            }}
+                                        />
+                                    ))}
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    {/* Next Item (Right) */}
                     <div
                         onClick={goToNext}
                         className="cursor-pointer transform hover:scale-105 transition-transform duration-300 z-10"

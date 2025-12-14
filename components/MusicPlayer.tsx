@@ -128,44 +128,38 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
     };
 
     return (
-        <div className="w-full mx-auto mt-22 mb-8 px-4">
+        <div className="w-full mx-auto mt-12 md:mt-22 mb-6 md:mb-8 px-2 md:px-4">
             <audio ref={audioRef} src={currentTrack.audioSrc} />
 
 
-            {/* Circular Carousel */}
-            <div className="relative h-72 mb-8 flex items-center justify-center perspective-1000">
+            {/* Circular Carousel - Responsive */}
+            <div className="relative h-56 md:h-72 mb-6 md:mb-8 flex items-center justify-center perspective-1000 overflow-hidden">
                 <div
-                    className={`flex items-center justify-center gap-12 transition-all duration-300 ease-in-out ${slideDirection === 'left' ? 'animate-slide-to-left' :
+                    className={`flex items-center justify-center gap-4 md:gap-8 lg:gap-12 transition-all duration-300 ease-in-out ${slideDirection === 'left' ? 'animate-slide-to-left' :
                         slideDirection === 'right' ? 'animate-slide-to-right' : ''
                         }`}
                 >
-                    {/* Previous Track (Left) */}
+                    {/* Previous Track (Left) - Responsive */}
                     <div
                         onClick={goToPreviousTrack}
-                        className="cursor-pointer transform hover:scale-105 transition-transform duration-300 z-10"
+                        className="cursor-pointer transform hover:scale-105 transition-transform duration-300 z-10 hidden sm:block"
                         style={{
                             opacity: 0.5,
                             transform: 'scale(0.75) rotateY(20deg)',
                         }}
                     >
                         <div
-                            className="w-44 h-44 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm relative"
+                            className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm relative"
                             style={{
                                 border: `2px solid ${accentColor}30`,
                                 background: `linear-gradient(135deg, ${accentColor}10, ${accentColor}05)`
                             }}
                         >
-                            {prevTrack.coverImage ? (
-                                <img
-                                    src={prevTrack.coverImage}
-                                    alt={prevTrack.title}
-                                    className="w-full h-full object-cover"
-                                />
-                            ) : (
-                                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
-                                    <FaPlay className="text-6xl text-gray-600" />
-                                </div>
-                            )}
+                            <img
+                                src={prevTrack.coverImage || '/images/default-cover.png'}
+                                alt={prevTrack.title}
+                                className="w-full h-full object-cover"
+                            />
                             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
                                 <p className="text-white text-sm font-semibold truncate">{prevTrack.title}</p>
                                 <p className="text-gray-300 text-xs truncate">{prevTrack.artist}</p>
@@ -173,7 +167,7 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
                         </div>
                     </div>
 
-                    {/* Current Track (Center) */}
+                    {/* Current Track (Center) - Responsive */}
                     <div
                         className="z-20 transition-transform duration-300"
                         style={{
@@ -181,7 +175,7 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
                         }}
                     >
                         <div
-                            className="w-72 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md"
+                            className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md"
                             style={{
                                 background: `linear-gradient(135deg, ${accentColor}15, ${accentColor}05)`,
                                 border: `2px solid ${accentColor}50`,
@@ -281,33 +275,27 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
                         </div>
                     </div>
 
-                    {/* Next Track (Right) */}
+                    {/* Next Track (Right) - Responsive */}
                     <div
                         onClick={goToNextTrack}
-                        className="cursor-pointer transform hover:scale-105 transition-transform duration-300 z-10"
+                        className="cursor-pointer transform hover:scale-105 transition-transform duration-300 z-10 hidden sm:block"
                         style={{
                             opacity: 0.5,
                             transform: 'scale(0.75) rotateY(-20deg)',
                         }}
                     >
                         <div
-                            className="w-44 h-44 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm relative"
+                            className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm relative"
                             style={{
                                 border: `2px solid ${accentColor}30`,
                                 background: `linear-gradient(135deg, ${accentColor}10, ${accentColor}05)`
                             }}
                         >
-                            {nextTrack.coverImage ? (
-                                <img
-                                    src={nextTrack.coverImage}
-                                    alt={nextTrack.title}
-                                    className="w-full h-full object-cover"
-                                />
-                            ) : (
-                                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
-                                    <FaPlay className="text-6xl text-gray-600" />
-                                </div>
-                            )}
+                            <img
+                                src={nextTrack.coverImage || '/images/default-cover.png'}
+                                alt={nextTrack.title}
+                                className="w-full h-full object-cover"
+                            />
                             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
                                 <p className="text-white text-sm font-semibold truncate">{nextTrack.title}</p>
                                 <p className="text-gray-300 text-xs truncate">{nextTrack.artist}</p>
