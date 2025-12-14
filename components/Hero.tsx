@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaGamepad, FaMusic, FaPen, FaBook, FaProjectDiagram, FaBriefcase, FaGraduationCap } from 'react-icons/fa';
 import { GiKickScooter, GiClapperboard } from 'react-icons/gi';
 import { TbFileCv } from 'react-icons/tb';
@@ -7,6 +8,33 @@ import Typewriter from './Typewriter';
 
 export default function Hero() {
   const { t, language } = useLanguage();
+  const [showCopiedNotification, setShowCopiedNotification] = useState(false);
+
+  const handleEmailClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const email = 'anthonymarquesfelix@gmail.com';
+
+    // Essayer d'ouvrir le client email
+    try {
+      // Vérifier si le navigateur peut gérer mailto:
+      window.location.href = `mailto:${email}`;
+
+      // Attendre un peu pour voir si ça fonctionne
+      await new Promise(resolve => setTimeout(resolve, 100));
+
+      // Si on arrive ici sans erreur, on copie quand même l'email en backup
+      navigator.clipboard.writeText(email).then(() => {
+        setShowCopiedNotification(true);
+        setTimeout(() => setShowCopiedNotification(false), 3000);
+      });
+    } catch (error) {
+      // Si mailto: échoue, copier l'email
+      e.preventDefault();
+      navigator.clipboard.writeText(email).then(() => {
+        setShowCopiedNotification(true);
+        setTimeout(() => setShowCopiedNotification(false), 3000);
+      });
+    }
+  };
 
   const contactCards = [
     {
@@ -20,6 +48,7 @@ export default function Hero() {
       href: 'mailto:anthonymarquesfelix@gmail.com',
       accent: 'hover:border-red-400 hover:text-red-400',
       shadow: 'hover:shadow-red-400/30',
+      isEmail: true,
     },
     {
       icon: FaLinkedin,
@@ -83,10 +112,11 @@ export default function Hero() {
 
           {/* Ligne 1 - Colonne 2: Contacts (2x2) - 1 colonne */}
           <div className="lg:col-span-1 grid grid-cols-2 gap-8">
-            {contactCards.map(({ icon: Icon, href, accent, shadow }) => (
+            {contactCards.map(({ icon: Icon, href, accent, shadow, isEmail }) => (
               <a
                 key={href}
                 href={href}
+                onClick={isEmail ? handleEmailClick : undefined}
                 target={href.startsWith('mailto:') ? undefined : '_blank'}
                 rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
                 className={`bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl aspect-square flex items-center justify-center text-gray-400 cursor-pointer hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl max-w-36 max-h-36 ${accent} ${shadow}`}
@@ -229,6 +259,44 @@ export default function Hero() {
             </div>
           </div>
         </div>
+
+        {/* Email Copied Notification */}
+        {showCopiedNotification && (
+          <div className="fixed bottom-8 right-8 z-50 animate-slide-up">
+            <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-green-400/30">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span className="font-semibold">Email copié dans le presse-papier !</span>
+            </div>
+          </div>
+        )}
+
+        <style jsx>{`
+          @keyframes slide-up {
+            from {
+              transform: translateY(100px);
+              opacity: 0;
+            }
+            to {
+              transform: translateY(0);
+              opacity: 1;
+            }
+          }
+          .animate-slide-up {
+            animation: slide-up 0.3s ease-out;
+          }
+        `}</style>
       </div >
     </section >
   );
