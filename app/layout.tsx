@@ -3,8 +3,15 @@ import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
 export const metadata: Metadata = {
-  title: "Mon Portfolio",
-  description: "Découvrez mes projets et compétences en développement.",
+  title: "Anthony Marques Felix - Portfolio",
+  description: "Découvrez mes projets et compétences en développement full-stack.",
+  icons: {
+    icon: [
+      { url: "/public/images/P_Icon.ico" },
+      { url: "/public/images/P_Icon.png", type: "image/png" },
+    ],
+    apple: "/public/images/P_Icon.png",
+  },
 };
 
 export default function RootLayout({

@@ -54,27 +54,27 @@ export default function Projects() {
     const { t } = useLanguage();
 
     return (
-        <section id="projects" className="min-h-screen pt-32 pb-16 px-6">
+        <section id="projects" className="min-h-screen pt-20 md:pt-32 pb-8 md:pb-16 px-4 md:px-6">
             <div className="max-w-7xl mx-auto">
                 {/* Hero Section */}
-                <div className="mb-16">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                <div className="mb-8 md:mb-16">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
                         {t('projects.pageTitle')}
                     </h1>
-                    <p className="text-xl text-gray-400 leading-relaxed">
+                    <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
                         {t('projects.intro')}
                     </p>
                 </div>
 
-                {/* Projects Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Projects Grid - Responsive */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
                     {projects.map((project) => (
                         <a
                             key={project.id}
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative bg-gradient-to-br from-gray-900/70 to-black/60 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.02] transition-all duration-500 overflow-hidden no-underline"
+                            className="group relative bg-gradient-to-br from-gray-900/70 to-black/60 rounded-3xl p-6 md:p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.02] transition-all duration-500 overflow-hidden no-underline"
                             style={{ border: `2px solid ${project.accentColor}20` }}
                         >
                             {/* Gradient Background Effect */}
@@ -85,35 +85,35 @@ export default function Projects() {
                             {/* Content */}
                             <div className="relative z-10">
                                 {/* Project Header */}
-                                <div className="flex items-start gap-4 mb-6">
+                                <div className="flex items-start gap-3 md:gap-4 mb-4 md:mb-6">
                                     <div
-                                        className="text-6xl transition-transform duration-300 group-hover:scale-110"
+                                        className="text-4xl md:text-6xl transition-transform duration-300 group-hover:scale-110"
                                         style={{ color: project.accentColor }}
                                     >
                                         {project.image}
                                     </div>
                                     <div className="flex-1">
                                         <p
-                                            className="text-sm font-semibold uppercase tracking-wider mb-2"
+                                            className="text-xs md:text-sm font-semibold uppercase tracking-wider mb-1 md:mb-2"
                                             style={{ color: project.accentColor }}
                                         >
                                             {t(project.categoryKey)}
                                         </p>
-                                        <h2 className="text-2xl font-bold mb-2 text-white">{t(project.titleKey)}</h2>
+                                        <h2 className="text-xl md:text-2xl font-bold mb-2 text-white">{t(project.titleKey)}</h2>
                                     </div>
                                 </div>
 
                                 {/* Description */}
-                                <p className="text-gray-400 mb-6 leading-relaxed">
+                                <p className="text-sm md:text-base text-gray-400 mb-4 md:mb-6 leading-relaxed">
                                     {t(project.descriptionKey)}
                                 </p>
 
                                 {/* Technologies */}
-                                <div className="flex flex-wrap gap-2 mb-6">
+                                <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                                     {project.technologies.map((tech, idx) => (
                                         <span
                                             key={idx}
-                                            className="px-3 py-1 rounded-full text-sm font-medium transition-all duration-300"
+                                            className="px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium transition-all duration-300"
                                             style={{
                                                 backgroundColor: `${project.accentColor}15`,
                                                 border: `1px solid ${project.accentColor}30`,

@@ -29,17 +29,17 @@ export default function Internship() {
     const { t } = useLanguage();
 
     return (
-        <section id="internship" className="min-h-screen pt-32 pb-16 px-6">
+        <section id="internship" className="min-h-screen pt-20 md:pt-32 pb-8 md:pb-16 px-4 md:px-6">
             <div className="max-w-7xl mx-auto">
                 {/* Hero Section */}
-                <div className="mb-16">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                <div className="mb-8 md:mb-16">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
                         {t('internships.pageTitle')}
                     </h1>
                 </div>
 
-                {/* Internship Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Internships Grid - Responsive */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
                     {internships.map((internship) => (
                         <div
                             key={internship.id}

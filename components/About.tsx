@@ -6,22 +6,22 @@ export default function About() {
     const { t } = useLanguage();
 
     return (
-        <section id="about" className="min-h-screen pt-32 pb-16 px-6">
+        <section id="about" className="min-h-screen pt-20 md:pt-32 pb-8 md:pb-16 px-4 md:px-6">
             <div className="max-w-7xl mx-auto">
                 {/* Hero Section */}
-                <div className="mb-8 flex items-start justify-between gap-12">
+                <div className="mb-6 md:mb-8 flex flex-col md:flex-row items-start justify-between gap-6 md:gap-12">
                     <div className="flex-1">
-                        <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
                             {t('about.title')}
                         </h1>
-                        <p className="text-xl text-gray-400 leading-relaxed">
+                        <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
                             {t('about.intro')}
                         </p>
                     </div>
 
                     {/* Profile Photo */}
-                    <div className="flex-shrink-0 hidden md:block">
-                        <div className="relative w-48 h-48 rounded-full overflow-hidden shadow-2xl">
+                    <div className="flex-shrink-0 mx-auto md:mx-0 hidden sm:block">
+                        <div className="relative w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl">
                             <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-yellow-500 p-1 rounded-full">
                                 <div className="w-full h-full rounded-full overflow-hidden bg-black">
                                     <img
@@ -36,7 +36,7 @@ export default function About() {
                 </div>
 
                 {/* Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
 
                     {/* Personal Info Card */}
                     <div className="bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300">

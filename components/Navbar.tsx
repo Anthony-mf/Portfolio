@@ -58,7 +58,7 @@ export default function Navbar() {
                 aria-pressed={language === 'fr'}
               >
                 <Image
-                  src="/svg/French_Flag.svg"
+                  src="/images/svg/French_Flag.svg"
                   alt="Français"
                   width={20}
                   height={20}
@@ -74,7 +74,7 @@ export default function Navbar() {
                 aria-pressed={language === 'en'}
               >
                 <Image
-                  src="/svg/UK_Flag.svg"
+                  src="/images/svg/UK_Flag.svg"
                   alt="English"
                   width={20}
                   height={20}

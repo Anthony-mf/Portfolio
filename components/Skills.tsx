@@ -74,7 +74,19 @@ const competencies: Competency[] = [
 export default function Skills() {
     const { t } = useLanguage();
     const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-    const [expandedLevel3, setExpandedLevel3] = useState<number | null>(null);
+    const [expandedLevel3, setExpandedLevel3] = useState<{ [key: string]: boolean }>({});
+
+    const toggleExpand = (index: number) => {
+        setExpandedIndex(expandedIndex === index ? null : index);
+    };
+
+    const toggleLevel3 = (competencyCode: string, level: number) => {
+        const key = `${competencyCode}-${level}`;
+        setExpandedLevel3(prev => ({
+            ...prev,
+            [key]: !prev[key]
+        }));
+    };
 
     // Handle escape key to close expanded card
     useEffect(() => {
@@ -95,23 +107,26 @@ export default function Skills() {
         } else {
             document.body.style.overflow = 'unset';
         }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
     }, [expandedIndex]);
 
     return (
-        <section id="skills" className="min-h-screen pt-32 pb-16 px-6">
+        <section id="skills" className="min-h-screen pt-20 md:pt-32 pb-8 md:pb-16 px-4 md:px-6">
             <div className="max-w-7xl mx-auto">
                 {/* Hero Section */}
-                <div className="mb-16">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                <div className="mb-8 md:mb-16">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
                         {t('skills.pageTitle')}
                     </h1>
-                    <p className="text-xl text-gray-400 leading-relaxed">
+                    <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
                         {t('skills.intro')}
                     </p>
                 </div>
 
                 {/* Competencies Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 auto-rows-fr">
                     {competencies.map((comp, idx) => {
                         const Icon = comp.icon;
                         const isExpanded = expandedIndex === idx;
@@ -246,7 +261,7 @@ export default function Skills() {
                                                 className={`flex items-start gap-4 ${level === 3 ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''}`}
                                                 onClick={() => {
                                                     if (level === 3) {
-                                                        setExpandedLevel3(expandedLevel3 === level ? null : level);
+                                                        toggleLevel3(competencies[expandedIndex].code, level);
                                                     }
                                                 }}
                                             >
@@ -260,17 +275,16 @@ export default function Skills() {
                                                 </h3>
                                                 {level === 3 && (
                                                     <FaChevronDown
-                                                        className={`text-xl text-white/70 transition-transform duration-300 mt-1 ${expandedLevel3 === level ? 'rotate-180' : ''
+                                                        className={`text-xl text-white/70 transition-transform duration-300 mt-1 ${expandedLevel3[`${competencies[expandedIndex].code}-${level}`] ? 'rotate-180' : ''
                                                             }`}
                                                         style={{ color: competencies[expandedIndex].accentColor }}
                                                     />
                                                 )}
                                             </div>
 
-                                            {/* AC List - Only for Level 3 with drawer animation */}
                                             {level === 3 && (
                                                 <div
-                                                    className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedLevel3 === level ? 'max-h-[2000px] opacity-100 mt-6' : 'max-h-0 opacity-0'
+                                                    className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedLevel3[`${competencies[expandedIndex].code}-${level}`] ? 'max-h-[2000px] opacity-100 mt-6' : 'max-h-0 opacity-0'
                                                         }`}
                                                 >
                                                     <ul className="space-y-3 ml-16">

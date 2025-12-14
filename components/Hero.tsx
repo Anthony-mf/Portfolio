@@ -65,15 +65,15 @@ export default function Hero() {
   ];
 
   return (
-    <section className="pt-32 pb-16 px-6">
+    <section className="pt-20 md:pt-32 pb-8 md:pb-16 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
-        {/* Grille asymétrique : Ligne 1 [2fr_1fr_1fr], Ligne 2 [1fr_1fr_2fr] */}
-        <div className="grid grid-cols-4 gap-8">
+        {/* Grille responsive : Mobile (1 col), Tablette (2 cols), Desktop (4 cols) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
 
-          {/* Ligne 1 - Colonne 1: About - 2 colonnes */}
-          <a href="/about" className="lg:col-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 flex flex-col justify-between shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500 cursor-pointer max-h-80 no-underline">
-            <div className="flex items-start justify-between gap-6">
-              <div className="flex-1 mb-8">
+          {/* Ligne 1 - Colonne 1: About - 2 colonnes sur desktop, pleine largeur sur mobile */}
+          <a href="/about" className="md:col-span-2 lg:col-span-2 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500 cursor-pointer max-h-none md:max-h-80 no-underline">
+            <div className="flex flex-col md:flex-row items-start justify-between gap-4 md:gap-6">
+              <div className="flex-1 mb-4 md:mb-8 w-full">
                 <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">
                   <Typewriter
                     texts={[t('hero.alternant'), t('hero.futureDeveloper')]}
@@ -82,20 +82,20 @@ export default function Hero() {
                     pauseDelay={2000}
                   />
                 </p>
-                <h1 className="text-3xl font-bold mb-3">
+                <h1 className="text-2xl md:text-3xl font-bold mb-3">
                   Anthony<br />
                   <span className="bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent">
                     MARQUES FELIX
                   </span>
                 </h1>
-                <p className="text-lg text-gray-400 leading-relaxed">
+                <p className="text-base md:text-lg text-gray-400 leading-relaxed">
                   {t('hero.description')}
                 </p>
               </div>
 
-              {/* Profile Photo */}
-              <div className="flex-shrink-0">
-                <div className="relative w-32 h-32 rounded-full overflow-hidden border-gradient-to-r from-orange-400 to-yellow-500 shadow-lg">
+              {/* Profile Photo - Plus petite sur mobile */}
+              <div className="flex-shrink-0 mx-auto md:mx-0">
+                <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-gradient-to-r from-orange-400 to-yellow-500 shadow-lg">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-yellow-500 p-1 rounded-full">
                     <div className="w-full h-full rounded-full overflow-hidden bg-black">
                       <img
@@ -110,8 +110,8 @@ export default function Hero() {
             </div>
           </a>
 
-          {/* Ligne 1 - Colonne 2: Contacts (2x2) - 1 colonne */}
-          <div className="lg:col-span-1 grid grid-cols-2 gap-8">
+          {/* Ligne 1 - Colonne 2: Contacts (2x2) - Responsive */}
+          <div className="md:col-span-1 lg:col-span-1 grid grid-cols-2 gap-3 md:gap-4 lg:gap-8">
             {contactCards.map(({ icon: Icon, href, accent, shadow, isEmail }) => (
               <a
                 key={href}
@@ -119,15 +119,15 @@ export default function Hero() {
                 onClick={isEmail ? handleEmailClick : undefined}
                 target={href.startsWith('mailto:') ? undefined : '_blank'}
                 rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                className={`bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl aspect-square flex items-center justify-center text-gray-400 cursor-pointer hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl max-w-36 max-h-36 ${accent} ${shadow}`}
+                className={`bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl aspect-square flex items-center justify-center text-gray-400 cursor-pointer hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl w-full max-w-none md:max-w-36 max-h-none md:max-h-36 ${accent} ${shadow}`}
               >
-                <Icon className="w-10 h-10" />
+                <Icon className="w-8 h-8 md:w-10 md:h-10" />
               </a>
             ))}
           </div>
 
-          {/* Ligne 1 - Colonne 3 : Skills Icons - 1 colonne */}
-          <a href="/skills" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-6 flex flex-col shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500 cursor-pointer max-h-80 no-underline">
+          {/* Ligne 1 - Colonne 3 : Skills Icons - Responsive */}
+          <a href="/skills" className="md:col-span-1 lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-4 md:p-6 flex flex-col shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500 cursor-pointer max-h-none md:max-h-80 no-underline">
             <div className="flex items-center justify-center mb-4">
               <h3 className="text-2xl font-bold">{t('skills.title')}</h3>
             </div>
@@ -161,8 +161,8 @@ export default function Hero() {
             </div>
           </a>
 
-          {/* Ligne 2 - Colonne 1: Strengths - 1 colonne */}
-          <a href="/strengths" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] hover:shadow-orange-500/20 hover:border-orange-500 transition-all duration-300 no-underline block">
+          {/* Ligne 2 - Colonne 1: Strengths - Responsive */}
+          <a href="/strengths" className="md:col-span-1 lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-6 md:p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] hover:shadow-orange-500/20 hover:border-orange-500 transition-all duration-300 no-underline block">
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-center">{t('strengths.title')}</h3>
             </div>
@@ -179,8 +179,8 @@ export default function Hero() {
             </div>
           </a>
 
-          {/* Ligne 2 - Colonne 2: Hobbies - 1 colonne */}
-          <a href="/hobbies" className="lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] hover:shadow-orange-500/20 hover:border-orange-500 transition-all duration-300 flex flex-col no-underline">
+          {/* Ligne 2 - Colonne 2: Hobbies - Responsive */}
+          <a href="/hobbies" className="md:col-span-1 lg:col-span-1 bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-6 md:p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)] hover:scale-[1.01] hover:shadow-orange-500/20 hover:border-orange-500 transition-all duration-300 flex flex-col no-underline">
             <div className="mb-4">
               <h3 className="text-2xl font-bold text-center">{t('hobbies.title')}</h3>
             </div>
@@ -260,12 +260,12 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Email Copied Notification */}
+        {/* Email Copied Notification - Responsive */}
         {showCopiedNotification && (
-          <div className="fixed bottom-8 right-8 z-50 animate-slide-up">
-            <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-green-400/30">
+          <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 animate-slide-up max-w-[calc(100vw-2rem)] md:max-w-none">
+            <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-3 md:px-6 md:py-4 rounded-2xl shadow-2xl flex items-center gap-2 md:gap-3 border border-green-400/30">
               <svg
-                className="w-6 h-6"
+                className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -277,7 +277,7 @@ export default function Hero() {
                   d="M5 13l4 4L19 7"
                 />
               </svg>
-              <span className="font-semibold">Email copié dans le presse-papier !</span>
+              <span className="font-semibold text-sm md:text-base">Email copié dans le presse-papier !</span>
             </div>
           </div>
         )}

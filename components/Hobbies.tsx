@@ -109,20 +109,20 @@ export default function Hobbies() {
     }, [expandedIndex]);
 
     return (
-        <section id="hobbies" className="pt-24 pb-8 px-6">
+        <section id="hobbies" className="pt-20 md:pt-24 pb-6 md:pb-8 px-4 md:px-6">
             <div className="max-w-7xl mx-auto">
                 {/* Hero Section */}
-                <div className="mb-8">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                <div className="mb-6 md:mb-8">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
                         {t('hobbies.pageTitle')}
                     </h1>
-                    <p className="text-xl text-gray-400 leading-relaxed">
+                    <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
                         {t('hobbies.intro')}
                     </p>
                 </div>
 
-                {/* Hobbies Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Hobbies Grid - Responsive */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                     {hobbies.map((hobby, idx) => {
                         const Icon = hobby.icon;
                         const isExpanded = expandedIndex === idx;

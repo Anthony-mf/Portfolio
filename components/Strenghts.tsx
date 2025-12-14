@@ -15,27 +15,27 @@ export default function Strengths() {
     ];
 
     return (
-        <section id="strengths" className="min-h-screen pt-32 pb-16 px-6">
+        <section id="strengths" className="min-h-screen pt-20 md:pt-32 pb-8 md:pb-16 px-4 md:px-6">
             <div className="max-w-7xl mx-auto">
                 {/* Hero Section */}
-                <div className="mb-16">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                <div className="mb-8 md:mb-16">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
                         {t('strengths.pageTitle')}
                     </h1>
-                    <p className="text-xl text-gray-400 leading-relaxed">
+                    <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
                         {t('strengths.intro')}
                     </p>
                 </div>
 
-                {/* Tabs */}
-                <div className="mb-8 flex gap-4 flex-wrap">
+                {/* Tabs - Responsive */}
+                <div className="mb-6 md:mb-8 flex gap-2 md:gap-4 flex-wrap">
                     {tabs.map((tab) => (
                         <button
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
-                            className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${activeTab === tab.id
-                                    ? 'bg-gradient-to-r from-orange-400 to-yellow-500 text-black'
-                                    : 'bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10'
+                            className={`px-4 md:px-6 py-2 md:py-3 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 ${activeTab === tab.id
+                                ? 'bg-gradient-to-r from-orange-400 to-yellow-500 text-black'
+                                : 'bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10'
                                 }`}
                         >
                             {t(tab.labelKey)}
@@ -44,7 +44,7 @@ export default function Strengths() {
                 </div>
 
                 {/* Content Card */}
-                <div className="bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)]">
+                <div className="bg-gradient-to-br from-gray-900/70 to-black/60 border border-white/10 rounded-3xl p-6 md:p-8 shadow-[0px_20px_80px_rgba(0,0,0,0.35)]">
                     {/* Digital Tools */}
                     {activeTab === 'digital' && (
                         <ul className="space-y-4 text-gray-300">
