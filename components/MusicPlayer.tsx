@@ -128,12 +128,12 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
     };
 
     return (
-        <div className="w-full mx-auto mt-12 md:mt-22 mb-6 md:mb-8 px-2 md:px-4">
+        <div className="w-full mx-auto mt-6 md:mt-8 mb-6 md:mb-8 px-2 md:px-4">
             <audio ref={audioRef} src={currentTrack.audioSrc} />
 
 
             {/* Circular Carousel - Responsive */}
-            <div className="relative h-56 md:h-72 mb-6 md:mb-8 flex items-center justify-center perspective-1000 overflow-hidden">
+            <div className="relative min-h-[350px] md:min-h-[400px] lg:min-h-[450px] py-4 md:py-6 mb-6 md:mb-8 flex items-center justify-center perspective-1000 overflow-visible">
                 <div
                     className={`flex items-center justify-center gap-4 md:gap-8 lg:gap-12 transition-all duration-300 ease-in-out ${slideDirection === 'left' ? 'animate-slide-to-left' :
                         slideDirection === 'right' ? 'animate-slide-to-right' : ''
@@ -175,7 +175,7 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
                         }}
                     >
                         <div
-                            className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md"
+                            className="w-48 md:w-56 lg:w-64 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md"
                             style={{
                                 background: `linear-gradient(135deg, ${accentColor}15, ${accentColor}05)`,
                                 border: `2px solid ${accentColor}50`,
@@ -183,27 +183,27 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
                             }}
                         >
                             {/* Album Art */}
-                            <div className="relative flex items-center justify-center p-4">
+                            <div className="relative flex items-center justify-center p-3 md:p-4">
                                 {currentTrack.coverImage ? (
                                     <img
                                         src={currentTrack.coverImage}
                                         alt={currentTrack.title}
-                                        className="w-44 h-44 object-cover rounded-xl"
+                                        className="w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 object-cover rounded-xl"
                                     />
                                 ) : (
-                                    <div className="w-44 h-44 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl">
-                                        <FaPlay className="text-6xl text-gray-600" />
+                                    <div className="w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl">
+                                        <FaPlay className="text-4xl md:text-5xl lg:text-6xl text-gray-600" />
                                     </div>
                                 )}
                             </div>
 
                             {/* Track Info & Controls */}
-                            <div className="p-4 pt-0">
+                            <div className="p-3 md:p-4 pt-0">
                                 {/* Track Info */}
-                                <div className="text-center mb-4">
-                                    <h3 className="text-2xl font-bold text-white truncate">{currentTrack.title}</h3>
-                                    <p className="text-sm text-gray-400 truncate">{currentTrack.artist}</p>
-                                    <p className="text-xs text-gray-500 mt-1">
+                                <div className="text-center mb-3 md:mb-4">
+                                    <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white truncate">{currentTrack.title}</h3>
+                                    <p className="text-xs md:text-sm text-gray-400 truncate">{currentTrack.artist}</p>
+                                    <p className="text-[10px] md:text-xs text-gray-500 mt-1">
                                         Track {currentTrackIndex + 1} of {tracks.length}
                                     </p>
                                 </div>
@@ -228,20 +228,20 @@ export default function MusicPlayer({ tracks, accentColor }: MusicPlayerProps) {
                                 </div>
 
                                 {/* Controls */}
-                                <div className="flex items-center justify-center gap-4">
+                                <div className="flex items-center justify-center gap-3 md:gap-4">
                                     {/* Play/Pause Button */}
                                     <button
                                         onClick={togglePlay}
-                                        className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+                                        className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
                                         style={{
                                             backgroundColor: accentColor,
                                             boxShadow: `0 4px 20px ${accentColor}40`
                                         }}
                                     >
                                         {isPlaying ? (
-                                            <FaPause className="text-white text-2xl" />
+                                            <FaPause className="text-white text-lg md:text-2xl" />
                                         ) : (
-                                            <FaPlay className="text-white text-2xl ml-1" />
+                                            <FaPlay className="text-white text-lg md:text-2xl ml-0.5 md:ml-1" />
                                         )}
                                     </button>
 

@@ -41,9 +41,9 @@ export default function ImageCarousel({ items, accentColor }: ImageCarouselProps
     };
 
     return (
-        <div className="w-full mx-auto mt-8 md:mt-12 px-2 md:px-4">
+        <div className="w-full mx-auto mt-6 md:mt-8 px-2 md:px-4">
             {/* Circular Carousel - Responsive */}
-            <div className="relative h-48 md:h-64 mb-6 md:mb-8 flex items-center justify-center perspective-1000 overflow-hidden">
+            <div className="relative min-h-[300px] md:min-h-[350px] lg:min-h-[400px] py-4 md:py-6 mb-6 md:mb-8 flex items-center justify-center perspective-1000 overflow-visible">
                 <div
                     className={`flex items-center justify-center gap-4 md:gap-8 lg:gap-12 transition-all duration-300 ease-in-out ${slideDirection === 'left' ? 'animate-slide-to-left' :
                         slideDirection === 'right' ? 'animate-slide-to-right' : ''

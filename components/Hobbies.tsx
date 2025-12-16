@@ -176,17 +176,17 @@ export default function Hobbies() {
 
                     {/* Expanded Card */}
                     <div
-                        className="relative w-full h-full max-w-4xl max-h-[90vh] m-4 animate-expandCard"
+                        className="relative w-full max-w-4xl max-h-[85vh] mt-20 mb-4 mx-4 animate-expandCard"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="bg-gradient-to-br from-gray-900/95 to-black/90 border border-white/20 rounded-3xl p-4 h-full shadow-[0px_40px_120px_rgba(0,0,0,0.6)] overflow-y-auto">
+                        <div style={{ height: 'calc(85vh - 6rem)' }} className="bg-gradient-to-br from-gray-900/95 to-black/90 border border-white/20 rounded-3xl pt-16 md:pt-20 px-4 md:px-6 pb-8 md:pb-12 shadow-[0px_40px_120px_rgba(0,0,0,0.6)] overflow-y-scroll overflow-x-hidden scrollbar-custom">
                             {/* Close Button */}
                             <button
                                 onClick={() => setExpandedIndex(null)}
-                                className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 group hover:cursor-pointer"
+                                className="absolute top-4 md:top-6 right-4 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 group hover:cursor-pointer z-50"
                                 aria-label="Close"
                             >
-                                <FaTimes className="text-2xl text-white/70 group-hover:text-white transition-colors" />
+                                <FaTimes className="text-xl md:text-2xl text-white/70 group-hover:text-white transition-colors" />
                             </button>
 
                             {/* Content */}
@@ -276,7 +276,7 @@ export default function Hobbies() {
                                     <video
                                         src={hobbies[expandedIndex].videos}
                                         controls
-                                        className="w-[15vw] h-[40vh] mx-auto mt-8 rounded-2xl shadow-2xl"
+                                        className="w-[15vw] h-[40vh] mx-auto mt-12 md:mt-16 rounded-2xl shadow-2xl"
                                         style={{ border: `2px solid ${hobbies[expandedIndex].color}40` }}
                                     >
                                         Your browser does not support the video tag.
@@ -285,7 +285,7 @@ export default function Hobbies() {
                                     <img
                                         src={hobbies[expandedIndex].image}
                                         alt={t(hobbies[expandedIndex].titleKey)}
-                                        className="w-full h-60 max-w-lg mx-auto mt-8 rounded-2xl shadow-2xl"
+                                        className="w-full h-60 max-w-lg mx-auto mt-12 md:mt-16 rounded-2xl shadow-2xl"
                                         style={{ border: `2px solid ${hobbies[expandedIndex].color}40` }}
                                     />
                                 ) : null}
@@ -322,6 +322,30 @@ export default function Hobbies() {
 
                 .animate-expandCard {
                     animation: expandCard 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+                }
+
+                /* Custom Scrollbar Styles */
+                :global(.scrollbar-custom) {
+                    scrollbar-width: thin;
+                    scrollbar-color: rgba(251, 146, 60, 0.5) rgba(255, 255, 255, 0.1);
+                }
+
+                :global(.scrollbar-custom::-webkit-scrollbar) {
+                    width: 8px;
+                }
+
+                :global(.scrollbar-custom::-webkit-scrollbar-track) {
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 10px;
+                }
+
+                :global(.scrollbar-custom::-webkit-scrollbar-thumb) {
+                    background: rgba(251, 146, 60, 0.5);
+                    border-radius: 10px;
+                }
+
+                :global(.scrollbar-custom::-webkit-scrollbar-thumb:hover) {
+                    background: rgba(251, 146, 60, 0.7);
                 }
             `}</style>
         </section>
